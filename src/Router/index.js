@@ -20,7 +20,7 @@ const Routing = () => {
           <Route exact path="/HomePage">
             <HomePage />
           </Route>
-          <Route exact path="/Signin">
+          <Route exact path="/">
             <Signin />
           </Route>
           <Route exact path="/Signup">

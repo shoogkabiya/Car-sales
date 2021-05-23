@@ -10,7 +10,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push("/Signin");
+    history.push("/");
   };
   return (
     <div>
