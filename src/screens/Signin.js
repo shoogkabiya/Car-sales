@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
+import HomePage from "./HomePage";
 const Signin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +33,7 @@ const Signin = () => {
         <br />
         <br />
         <button type="submit">Sign in</button>
+        <Link to="/HomePage">Sign in</Link>
       </form>
     </div>
   );
