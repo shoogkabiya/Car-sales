@@ -8,15 +8,23 @@ import {
 } from "react-router-dom";
 
 //screens imports
+import HomePage from "../screens/HomePage";
 import Signin from "../screens/Signin";
+import Signup from "../screens/Signup";
 
 const Routing = () => {
   return (
     <div>
       <Router>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/HomePage">
+            <HomePage />
+          </Route>
+          <Route exact path="/Signin">
             <Signin />
+          </Route>
+          <Route exact path="/Signup">
+            <Signup />
           </Route>
         </Switch>
       </Router>
