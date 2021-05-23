@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import HomePage from "./HomePage";
+import { useHistory, Link } from "react-router-dom";
+
 const Signin = () => {
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    history.push("/HomePage");
   };
+
   return (
     <div>
       <form
@@ -33,7 +37,8 @@ const Signin = () => {
         <br />
         <br />
         <button type="submit">Sign in</button>
-        <Link to="/HomePage">Sign in</Link>
+        <br />
+        <Link to="/Signup">Sign up</Link>
       </form>
     </div>
   );
