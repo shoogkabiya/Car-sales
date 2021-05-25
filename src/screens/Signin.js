@@ -14,7 +14,6 @@ const Signin = () => {
     setUsername(event.target.value);
     if (patternUsername.test(username)) {
       setIsValidUsername(true);
-      setMessage("Your username looks good!");
     } else {
       setIsValidUsername(false);
       setMessage("Please enter a  valid username");
@@ -26,7 +25,6 @@ const Signin = () => {
     setPassword(event.target.value);
     if (patternPassword.test(password)) {
       setIsValidPassword(true);
-      setMessage("Your password looks good!");
     } else {
       setIsValidPassword(false);
       setMessage("Please enter a  valid password");
@@ -70,11 +68,17 @@ const Signin = () => {
         >
           {message}
         </div>
-        <button type="submit">Sign in</button>
+
+        <button className="submit" type="submit">
+          Sign in
+        </button>
         <br />
 
         <p>
-          Don't have an account? <Link to="/Signup">Sign up</Link>
+          Don't have an account?{" "}
+          <Link className="Signup" to="/Signup">
+            Sign up
+          </Link>
         </p>
       </form>
     </div>
