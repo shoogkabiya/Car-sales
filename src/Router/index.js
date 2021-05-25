@@ -17,11 +17,11 @@ const Routing = () => {
     <div>
       <Router>
         <Switch>
-          <Route exact path="/HomePage">
-            <HomePage />
-          </Route>
           <Route exact path="/">
             <Signin />
+          </Route>
+          <Route exact path="/HomePage">
+            <HomePage />
           </Route>
           <Route exact path="/Signup">
             <Signup />
