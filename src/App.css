@@ -45,7 +45,8 @@
   color: blue;
 } */
 
-.messageUsername {
+.messageUsername,
+.messagePassword {
   color: red;
 }
 .Signup {

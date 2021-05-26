@@ -2,15 +2,14 @@ import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 
 const Signin = () => {
-  const [errorsusername, setErrorsUsername] = useState("");
-  const [errorspassword, setErrorsPassword] = useState("");
+  const [errorusername, setErrorUsername] = useState(false);
+  const [errorpassword, setErrorPassword] = useState(false);
   const history = useHistory();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [isValidUsername, setIsValidUsername] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
-  // const [messageUsername, setMessageUsername] = useState("");
-  // const [messagePassword, setMessagePassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const validateUsername = (event) => {
     const patternUsername = /^[a-z\d]{5,12}$/i;
     setUsername(event.target.value);
@@ -18,7 +17,7 @@ const Signin = () => {
       setIsValidUsername(true);
     } else {
       setIsValidUsername(false);
-      setErrorsUsername("Invalid  username");
+      setErrorUsername("Invalid  username");
     }
   };
 
@@ -29,13 +28,15 @@ const Signin = () => {
       setIsValidPassword(true);
     } else {
       setIsValidPassword(false);
-      setErrorsPassword("Invalid  password");
+      setErrorPassword("Invalid  password");
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (isValidUsername && isValidPassword) {
+      console.log("valid");
       history.push("/HomePage");
     }
   };
@@ -50,6 +51,7 @@ const Signin = () => {
         <input
           name="username"
           placeholder="Username"
+          value={username}
           onChange={validateUsername}
           type="text"
         />
@@ -58,20 +60,17 @@ const Signin = () => {
         <input
           name="password"
           placeholder="password"
+          value={password}
           onChange={validatePassword}
           type="password"
         />
         <br />
         <br />
-        {!isValidUsername && (
-          <div className="messageUsername">{errorsusername}</div>
-        )}
-        {!isValidPassword && (
-          <div className="messagePassword">{errorspassword}</div>
-        )}
+
         <button className="submit" type="submit">
           Sign in
         </button>
+
         <br />
 
         <p>
