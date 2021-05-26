@@ -63,7 +63,7 @@ const Signin = () => {
         <br />
         <div
           className={`message ${
-            isValidUsername && isValidPassword ? "success" : "error"
+            isValidUsername && isValidPassword ? "" : "error"
           }`}
         >
           {message}
