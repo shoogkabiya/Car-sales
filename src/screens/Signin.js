@@ -7,8 +7,8 @@ const Signin = () => {
   const [password, setPassword] = useState("");
   const [isValidUsername, setIsValidUsername] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
-  const [message, setMessage] = useState("");
-
+  const [messageUsername, setMessageUsername] = useState("");
+  const [messagePassword, setMessagePassword] = useState("");
   const validateUsername = (event) => {
     const patternUsername = /^[a-z\d]{5,12}$/i;
     setUsername(event.target.value);
@@ -16,7 +16,7 @@ const Signin = () => {
       setIsValidUsername(true);
     } else {
       setIsValidUsername(false);
-      setMessage("Please enter a  valid username");
+      setMessageUsername("Please enter a  valid username");
     }
   };
 
@@ -27,7 +27,7 @@ const Signin = () => {
       setIsValidPassword(true);
     } else {
       setIsValidPassword(false);
-      setMessage("Please enter a  valid password");
+      setMessagePassword("Please enter a  valid password");
     }
   };
 
@@ -61,14 +61,12 @@ const Signin = () => {
         />
         <br />
         <br />
-        <div
-          className={`message ${
-            isValidUsername && isValidPassword ? "" : "error"
-          }`}
-        >
-          {message}
-        </div>
-
+        {!isValidUsername && (
+          <div className="messageUsername">{messageUsername}</div>
+        )}
+        {!isValidPassword && (
+          <div className="messagePassword">{messagePassword}</div>
+        )}
         <button className="submit" type="submit">
           Sign in
         </button>
