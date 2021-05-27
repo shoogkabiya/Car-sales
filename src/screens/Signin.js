@@ -12,7 +12,7 @@ const Signin = () => {
     const patternUsername = /^[a-z\d]{5,12}$/i;
     setUsername(event.target.value);
     if (patternUsername.test(event.target.value)) {
-      console.log("username:", true);
+      console.log("username:", "usernametrue");
       setIsValidUsername(true);
     } else {
       setIsValidUsername(false);
@@ -23,6 +23,7 @@ const Signin = () => {
     const patternPassword = /[\w@-]{8,20}$/;
     setPassword(event.target.value);
     if (patternPassword.test(event.target.value)) {
+      console.log("password:", "passwordtrue");
       setIsValidPassword(true);
     } else {
       setIsValidPassword(false);
@@ -39,7 +40,7 @@ const Signin = () => {
   };
 
   return (
-    <div>
+    <div className="form-signin-input">
       <form
         onSubmit={(e) => {
           handleSubmit(e);
@@ -52,6 +53,8 @@ const Signin = () => {
           onChange={validateUsername}
           type="text"
         />
+
+        {!isValidUsername && <p className="error">Your username is invalid</p>}
         <br />
         <br />
         <input
@@ -61,10 +64,11 @@ const Signin = () => {
           onChange={validatePassword}
           type="password"
         />
-        <br />
-        <br />
-        {!isValidUsername && <p className="error">Your username is invalid</p>}
         {!isValidPassword && <p className="error">our password is invalid</p>}
+        <br />
+        <br />
+        {/* {!isValidUsername && <p className="error">Your username is invalid</p>}
+        {!isValidPassword && <p className="error">our password is invalid</p>} */}
         <button className="submit" type="submit">
           Sign in
         </button>
