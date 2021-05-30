@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 
 const Signin = () => {
-  const [isValidUsername, setIsValidUsername] = useState(false);
-  const [isValidPassword, setIsValidPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isValidUsername, setIsValidUsername] = useState(false);
+  const [isValidPassword, setIsValidPassword] = useState(false);
   const history = useHistory();
 
   const validateUsername = (event) => {
