@@ -40,7 +40,7 @@ const Signup = () => {
   ////
   const validateEmail = (event) => {
     const email = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
-    setLastName(event.target.value);
+    setEmail(event.target.value);
     if (email.test(event.target.value)) {
       console.log("Email:", "Emailtrue");
       setIsValidEmail(true);
