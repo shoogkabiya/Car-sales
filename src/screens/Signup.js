@@ -1,41 +1,87 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const Signup = () => {
   const history = useHistory();
-  const [errors, setErrors] = useState("");
+  // const [errors, setErrors] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  // const [isValidFirstName, setIsValidFirstName] = useState(false);
-  // const [isValidLastName, setIsValidLastName] = useState(false);
-  // const [isValidEmail, setIsValidEmail] = useState(false);
-  // const [isValidPassword, setIsValidPassword] = useState(false);
-  // const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(false);
-  const handleChange = (event) => {
-    event.preventDefault();
-    const email = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
-    const { name, value } = event.target;
+  const [isValidFirstName, setIsValidFirstName] = useState(false);
+  const [isValidLastName, setIsValidLastName] = useState(false);
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  const [isValidPassword, setIsValidPassword] = useState(false);
+  const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(false);
 
-    switch (name) {
-      case "firstName":
-        errors.firstName =
-          value.length < 5 ? "First Name must be more 5 characters long!" : "";
-        break;
-      case "lastName":
-        errors.lastName =
-          value.length < 5 ? "Last Name must be more 5 characters long!" : "";
-        break;
-      case " email":
-        errors.email = email.test(value) ? "Email is not valid!" : "";
-        break;
+  ////validation
+  const validateFirstName = (event) => {
+    const patternname = /^[a-z\d]{5,12}$/i;
+    setFirstName(event.target.value);
+    if (patternname.test(event.target.value)) {
+      console.log("FirstName:", "FirstNametrue");
+      setIsValidFirstName(true);
+    } else {
+      setIsValidFirstName(false);
     }
   };
+  ////
+  const validateLastName = (event) => {
+    const patternname = /^[a-z\d]{5,12}$/i;
+    setLastName(event.target.value);
+    if (patternname.test(event.target.value)) {
+      console.log("LastName:", "LastNametrue");
+      setIsValidLastName(true);
+    } else {
+      setIsValidLastName(false);
+    }
+  };
+  ////
+  const validateEmail = (event) => {
+    const email = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+    setLastName(event.target.value);
+    if (email.test(event.target.value)) {
+      console.log("Email:", "Emailtrue");
+      setIsValidEmail(true);
+    } else {
+      setIsValidEmail(false);
+    }
+  };
+  ////
+  const validatePassword = (event) => {
+    const patternPassword = /[\w@-]{8,20}$/;
+    setPassword(event.target.value);
+    if (patternPassword.test(event.target.value)) {
+      console.log("password:", "passwordtrue");
+      setIsValidPassword(true);
+    } else {
+      setIsValidPassword(false);
+    }
+  };
+  ////
+  const validateconfirmPassword = (event) => {
+    const password = setPassword(event.target.value);
+    const confirmPassword = setConfirmPassword(event.target.value);
+    if (password === confirmPassword) {
+      setIsValidConfirmPassword(true);
+    } else {
+      setIsValidConfirmPassword(false);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push("/");
+    if (
+      isValidFirstName &&
+      isValidLastName &&
+      isValidEmail &&
+      isValidPassword &&
+      isValidConfirmPassword
+    ) {
+      console.log("Correct data");
+      history.push("/");
+    }
   };
   return (
     <div>
@@ -48,7 +94,7 @@ const Signup = () => {
           name="firstName"
           placeholder="First Name"
           value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+          onChange={validateFirstName}
           type="text"
         />
         <br />
@@ -57,7 +103,7 @@ const Signup = () => {
           name="lastName"
           placeholder="Last Name"
           value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={validateLastName}
           type="text"
         />
         <br />
@@ -66,7 +112,7 @@ const Signup = () => {
           name="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={validateEmail}
           type="email"
         />
         <br />
@@ -74,8 +120,8 @@ const Signup = () => {
         <input
           name="Password"
           placeholder="Password"
-          value={Password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          onChange={validatePassword}
           type="password"
         />
         <br />
@@ -84,12 +130,13 @@ const Signup = () => {
           name="confirmPassword"
           placeholder="Confirm Password"
           value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
+          onChange={validateconfirmPassword}
           type="password"
         />
         <br />
         <br />
-
+        {isValidConfirmPassword ? "equal Password  " : "not equal"}
+        <br />
         <button type="submit">Sign up</button>
       </form>
     </div>

@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 
 const Signin = () => {
-  const history = useHistory();
   const [isValidUsername, setIsValidUsername] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const validateUsername = (event) => {
     const patternUsername = /^[a-z\d]{5,12}$/i;
@@ -32,7 +32,6 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (isValidUsername && isValidPassword) {
       console.log("ValidUsername,ValidPassword");
       history.push("/HomePage");
@@ -67,8 +66,7 @@ const Signin = () => {
         {!isValidPassword && <p className="error">our password is invalid</p>}
         <br />
         <br />
-        {/* {!isValidUsername && <p className="error">Your username is invalid</p>}
-        {!isValidPassword && <p className="error">our password is invalid</p>} */}
+
         <button className="submit" type="submit">
           Sign in
         </button>
