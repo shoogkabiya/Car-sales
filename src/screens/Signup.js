@@ -61,7 +61,7 @@ const Signup = () => {
   };
   ////
   const validateconfirmPassword = (event) => {
-    const password = setPassword(event.target.value);
+    // const password = setPassword(event.target.value);
     const confirmPassword = setConfirmPassword(event.target.value);
     if (password === confirmPassword) {
       setIsValidConfirmPassword(true);
