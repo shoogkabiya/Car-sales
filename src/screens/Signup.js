@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 const Signup = () => {
   const history = useHistory();
-  // const [errors, setErrors] = useState("");
+  const [isError, setIsError] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -59,16 +59,30 @@ const Signup = () => {
       setIsValidPassword(false);
     }
   };
-  ////
-  const validateconfirmPassword = (event) => {
-    // const password = setPassword(event.target.value);
-    const confirmPassword = setConfirmPassword(event.target.value);
-    if (password === confirmPassword) {
-      setIsValidConfirmPassword(true);
-    } else {
+  ///checkValidation
+  const checkValidation = (e) => {
+    setConfirmPassword(e.target.value);
+    if (password !== confirmPassword) {
+      // console.log("Confirm Password should be match with password");
+      setIsError("Confirm Password should be match with password");
+      // console.log("Confirm Password should be match with password");
       setIsValidConfirmPassword(false);
+      console.log("Password doesn't match ");
+    } else {
+      console.log("Password match ");
+      setIsValidConfirmPassword(true);
     }
   };
+  ////
+  // const validateconfirmPassword = (event) => {
+  //   if (
+  //     setPassword(event.target.value) === setConfirmPassword(event.target.value)
+  //   ) {
+  //     setIsValidConfirmPassword(true);
+  //   } else {
+  //     setIsValidConfirmPassword(false);
+  //   }
+  // };
   //// Submit
 
   const handleSubmit = (e) => {
@@ -127,7 +141,7 @@ const Signup = () => {
         />
         <br />
         <br />
-        <input
+        {/* <input
           name="confirmPassword"
           placeholder="Confirm Password"
           value={confirmPassword}
@@ -135,8 +149,17 @@ const Signup = () => {
           type="password"
         />
         <br />
+        <br /> */}
+        <input
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => checkValidation(e)}
+          type="password"
+        />
         <br />
-        {isValidConfirmPassword ? "equal Password  " : "not equal"}
+        <br />
+        {!isValidConfirmPassword ? <p>{isError} </p> : " equal"}
         <br />
         <button type="submit">Sign up</button>
       </form>
