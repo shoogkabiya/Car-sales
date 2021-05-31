@@ -8,6 +8,7 @@ const Signin = () => {
   const [isValidPassword, setIsValidPassword] = useState(false);
   const history = useHistory();
 
+  ////validation
   const validateUsername = (event) => {
     const patternUsername = /^[a-z\d]{5,12}$/i;
     setUsername(event.target.value);
@@ -18,7 +19,7 @@ const Signin = () => {
       setIsValidUsername(false);
     }
   };
-
+  ////
   const validatePassword = (event) => {
     const patternPassword = /[\w@-]{8,20}$/;
     setPassword(event.target.value);
@@ -29,7 +30,7 @@ const Signin = () => {
       setIsValidPassword(false);
     }
   };
-
+  //// Submit
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValidUsername && isValidPassword) {
@@ -37,7 +38,7 @@ const Signin = () => {
       history.push("/HomePage");
     }
   };
-
+  ////
   return (
     <div className="form-signin-input">
       <form

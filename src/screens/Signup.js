@@ -50,7 +50,7 @@ const Signup = () => {
   };
   ////
   const validatePassword = (event) => {
-    const patternPassword = /[\w@-]{8,20}$/;
+    const patternPassword = /[\w@-]{8,20}$/i;
     setPassword(event.target.value);
     if (patternPassword.test(event.target.value)) {
       console.log("password:", "passwordtrue");
@@ -62,29 +62,17 @@ const Signup = () => {
   ///checkValidation
   const checkValidation = (e) => {
     setConfirmPassword(e.target.value);
-    if (password !== confirmPassword) {
-      // console.log("Confirm Password should be match with password");
+    if (password !== e.target.value) {
       setIsError("Confirm Password should be match with password");
-      // console.log("Confirm Password should be match with password");
+      console.log("Confirm Password should be match with password");
       setIsValidConfirmPassword(false);
-      console.log("Password doesn't match ");
+      console.log("password doesn't match ");
     } else {
-      console.log("Password match ");
+      console.log("password match ");
       setIsValidConfirmPassword(true);
     }
   };
-  ////
-  // const validateconfirmPassword = (event) => {
-  //   if (
-  //     setPassword(event.target.value) === setConfirmPassword(event.target.value)
-  //   ) {
-  //     setIsValidConfirmPassword(true);
-  //   } else {
-  //     setIsValidConfirmPassword(false);
-  //   }
-  // };
   //// Submit
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -98,6 +86,7 @@ const Signup = () => {
       history.push("/");
     }
   };
+  ////
   return (
     <div>
       <form
@@ -141,15 +130,7 @@ const Signup = () => {
         />
         <br />
         <br />
-        {/* <input
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={validateconfirmPassword}
-          type="password"
-        />
-        <br />
-        <br /> */}
+
         <input
           name="confirmPassword"
           placeholder="Confirm Password"
@@ -159,8 +140,10 @@ const Signup = () => {
         />
         <br />
         <br />
-        {!isValidConfirmPassword ? <p>{isError} </p> : " equal"}
+
+        {!isValidConfirmPassword ? <p>{isError} </p> : "equal"}
         <br />
+
         <button type="submit">Sign up</button>
       </form>
     </div>
