@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Signup = () => {
   const history = useHistory();
@@ -64,7 +65,7 @@ const Signup = () => {
     setConfirmPassword(e.target.value);
     if (password !== e.target.value) {
       setIsError("Confirm Password should be match with password");
-      console.log("Confirm Password should be match with password");
+      // console.log("Confirm Password should be match with password");
       setIsValidConfirmPassword(false);
       console.log("password doesn't match ");
     } else {

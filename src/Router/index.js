@@ -14,7 +14,7 @@ import Signup from "../screens/Signup";
 
 const Routing = () => {
   return (
-    <div>
+    <div className="Page">
       <Router>
         <Switch>
           <Route exact path="/">

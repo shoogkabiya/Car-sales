@@ -1,6 +1,19 @@
-.App {
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+/* .App {
   margin-top: 40px;
   text-align: center;
+} */
+.Page {
+  position: relative;
+  border: 1px solid black;
+  width: 414px;
+  height: 90vh;
+  margin: auto;
+  padding: 60px;
 }
 
 /* .App-logo {
