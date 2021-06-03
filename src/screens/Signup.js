@@ -90,6 +90,7 @@ const Signup = () => {
   return (
     <div>
       <form
+        className="Signup-input-form"
         onSubmit={(e) => {
           handleSubmit(e);
         }}
@@ -141,10 +142,20 @@ const Signup = () => {
         <br />
         <br />
 
-        {!isValidConfirmPassword ? <p>{isError} </p> : "equal"}
+        {!isValidConfirmPassword ? (
+          <p className="error">{isError} </p>
+        ) : (
+          "equal"
+        )}
         <br />
 
-        <button type="submit">Sign up</button>
+        <button className="Signup" type="submit">
+          Sign up
+        </button>
+
+        {/* <button className="Signup" type="submit">
+          Sign up
+        </button> */}
       </form>
     </div>
   );

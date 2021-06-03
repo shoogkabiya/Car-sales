@@ -4,6 +4,13 @@
   margin: 0px;
 }
 
+/* .Page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  width: 100%;
+} */
 .Page {
   position: relative;
   border: 1px solid black;
@@ -13,10 +20,21 @@
   height: 90vh;
   padding: 60px;
 }
-
+.Signup-input-form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  color: #161f53;
+}
+.Signup-input-form input {
+  width: 90%;
+}
 .error {
   color: red;
 }
 .Signup {
-  color: blue;
+  color: #161f53;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }
