@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Navbar from "../components/Navbar";
 
 const Signup = () => {
   const history = useHistory();
