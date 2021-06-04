@@ -31,17 +31,23 @@ input {
   border: none;
   padding: 10px;
   border-radius: 10px;
-  color: #161f53;
 }
+
 .error {
   color: red;
 }
+
+.Signin,
 .Signup {
+  display: flex;
   color: #161f53;
-  background-color: #c4c4c4;
-  margin: auto;
   width: 50%;
+  margin: auto;
   border-radius: 10px;
-  padding: 10px;
+  background-color: #c4c4c4;
+  text-align: center;
+  justify-content: center;
   border: none;
+  font-size: 16px;
+  padding: 10px;
 }
