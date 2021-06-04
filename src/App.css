@@ -24,17 +24,24 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  color: #161f53;
 }
-.Signup-input-form input {
-  width: 80%;
+input {
+  width: 90%;
+  background-color: #c4c4c4;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #161f53;
 }
 .error {
   color: red;
 }
 .Signup {
   color: #161f53;
+  background-color: #c4c4c4;
   margin: auto;
   width: 50%;
+  border-radius: 10px;
   padding: 10px;
+  border: none;
 }
