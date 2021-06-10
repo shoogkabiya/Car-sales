@@ -4,13 +4,6 @@
   margin: 0px;
 }
 
-/* .Page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid black;
-  width: 100%;
-} */
 .Page {
   position: relative;
   border: 1px solid black;
@@ -32,6 +25,9 @@ input {
   padding: 10px;
   border-radius: 10px;
 }
+input:focus {
+  outline: none;
+}
 
 .error {
   color: red;
@@ -46,8 +42,13 @@ input {
   border-radius: 10px;
   background-color: #c4c4c4;
   text-align: center;
+  margin-top: 2px;
   justify-content: center;
   border: none;
   font-size: 16px;
   padding: 10px;
+}
+.Signin,
+.Signup {
+  outline: none;
 }
