@@ -99,6 +99,7 @@ const Signup = () => {
           name="firstName"
           placeholder="First Name"
           value={firstName}
+          className="input-form"
           onChange={validateFirstName}
           type="text"
         />
@@ -108,6 +109,7 @@ const Signup = () => {
           name="lastName"
           placeholder="Last Name"
           value={lastName}
+          className="input-form"
           onChange={validateLastName}
           type="text"
         />
@@ -117,6 +119,7 @@ const Signup = () => {
           name="email"
           placeholder="Email"
           value={email}
+          className="input-form"
           onChange={validateEmail}
           type="email"
         />
@@ -126,6 +129,7 @@ const Signup = () => {
           name="Password"
           placeholder="Password"
           value={password}
+          className="input-form"
           onChange={validatePassword}
           type="password"
         />
@@ -136,6 +140,7 @@ const Signup = () => {
           name="confirmPassword"
           placeholder="Confirm Password"
           value={confirmPassword}
+          className="input-form"
           onChange={(e) => checkValidation(e)}
           type="password"
         />
@@ -152,10 +157,6 @@ const Signup = () => {
         <button className="Signup" type="submit">
           Sign up
         </button>
-
-        {/* <button className="Signup" type="submit">
-          Sign up
-        </button> */}
       </form>
     </div>
   );

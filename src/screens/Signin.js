@@ -50,6 +50,7 @@ const Signin = () => {
           name="username"
           placeholder="Username"
           value={username}
+          className="input-form"
           onChange={validateUsername}
           type="text"
         />
@@ -61,6 +62,7 @@ const Signin = () => {
           name="password"
           placeholder="password"
           value={password}
+          className="input-form"
           onChange={validatePassword}
           type="password"
         />
