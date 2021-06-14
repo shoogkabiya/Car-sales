@@ -12,10 +12,14 @@ import HomePage from "../screens/HomePage";
 import Signin from "../screens/Signin";
 import Signup from "../screens/Signup";
 
+//components imports
+import HeadSection from "../components/HeadSection/index";
+
 const Routing = () => {
   return (
     <div className="Page">
       <Router>
+        <HeadSection />
         <Switch>
           <Route exact path="/">
             <Signin />
