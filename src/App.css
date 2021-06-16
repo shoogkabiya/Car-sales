@@ -11,13 +11,13 @@
   margin-top: 5vh;
   width: 414px;
   height: 90vh;
-  padding: 60px;
 }
 
-.Signup-input-form {
+.Signup-input-form,
+.form-signin-input {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 60px;
 }
 
 input {
