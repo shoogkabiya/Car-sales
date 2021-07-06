@@ -74,7 +74,14 @@ const Signin = () => {
         <button className="Signin" type="submit">
           Sign in
         </button>
+        <br />
 
+        <div id="checkBox">
+          <label for="role-box"> you are User?</label>
+          <input type="checkbox" name="role" id="role-box" />
+          <label for="role-box"> you are Consumer?</label>
+          <input type="checkbox" name="role" id="role-box" />
+        </div>
         <br />
 
         <p className="createaccount">
