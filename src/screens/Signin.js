@@ -79,7 +79,7 @@ const Signin = () => {
 
         <div id="checkBox">
           <div className="user-checkbox">
-            <label htmlFor="role-box"> you are User?</label>
+            <label htmlFor="role-box"> are you User?</label>
             <input
               type="checkbox"
               name="role"
@@ -88,7 +88,7 @@ const Signin = () => {
             />
           </div>
           <div className="consumer-checkbox">
-            <label htmlFor="role-box"> you are Consumer?</label>
+            <label htmlFor="role-box"> are you Consumer?</label>
             <input
               type="checkbox"
               name="role"
