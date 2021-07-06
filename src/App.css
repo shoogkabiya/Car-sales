@@ -74,8 +74,8 @@ input:focus {
   margin-right: 20%;
 }
 
-.user-checkbox,
-.consumer-checkbox {
+.user-radio,
+.consumer-radio {
   display: flex;
   margin-bottom: 15px;
 }

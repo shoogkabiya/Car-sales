@@ -78,19 +78,19 @@ const Signin = () => {
         <br />
 
         <div id="checkBox">
-          <div className="user-checkbox">
+          <div className="user-radio">
             <label htmlFor="role-box"> are you User?</label>
             <input
-              type="checkbox"
+              type="radio"
               name="role"
               id="role-box"
               onChange={() => setIsChecked(!isChecked)}
             />
           </div>
-          <div className="consumer-checkbox">
+          <div className="consumer-radio">
             <label htmlFor="role-box"> are you Consumer?</label>
             <input
-              type="checkbox"
+              type="radio"
               name="role"
               id="role-box"
               onChange={() => setIsChecked(!isChecked)}
