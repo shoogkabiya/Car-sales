@@ -63,3 +63,19 @@ input:focus {
 .createaccount {
   margin-top: 10px;
 }
+
+#checkBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.user-checkbox,
+.consumer-checkbox {
+  display: flex;
+  margin-bottom: 15px;
+}

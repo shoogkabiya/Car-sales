@@ -3,6 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 // import "./Signin.css";
 
 const Signin = () => {
+  const [isChecked, setIsChecked] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isValidUsername, setIsValidUsername] = useState(false);
@@ -34,7 +35,7 @@ const Signin = () => {
   //// Submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isValidUsername && isValidPassword) {
+    if (isValidUsername && isValidPassword && isChecked) {
       console.log("ValidUsername,ValidPassword");
       history.push("/HomePage");
     }
@@ -77,10 +78,24 @@ const Signin = () => {
         <br />
 
         <div id="checkBox">
-          <label for="role-box"> you are User?</label>
-          <input type="checkbox" name="role" id="role-box" />
-          <label for="role-box"> you are Consumer?</label>
-          <input type="checkbox" name="role" id="role-box" />
+          <div className="user-checkbox">
+            <label htmlFor="role-box"> you are User?</label>
+            <input
+              type="checkbox"
+              name="role"
+              id="role-box"
+              onChange={() => setIsChecked(!isChecked)}
+            />
+          </div>
+          <div className="consumer-checkbox">
+            <label htmlFor="role-box"> you are Consumer?</label>
+            <input
+              type="checkbox"
+              name="role"
+              id="role-box"
+              onChange={() => setIsChecked(!isChecked)}
+            />
+          </div>
         </div>
         <br />
 
