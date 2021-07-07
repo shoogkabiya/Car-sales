@@ -8,9 +8,9 @@ import {
 } from "react-router-dom";
 
 //screens imports
-import HomePage from "../screens/HomePage";
-import Signin from "../screens/Signin";
-import Signup from "../screens/Signup";
+import HomePage from "../screens/CarsPage/HomePage";
+import Signin from "../screens/Signin/Signin";
+import Signup from "../screens/Signup/Signup";
 
 //components imports
 import HeadSection from "../components/HeadSection/index";
