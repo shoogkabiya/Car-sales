@@ -14,6 +14,8 @@ import Signup from "../screens/Signup/Signup";
 
 //components imports
 import HeadSection from "../components/HeadSection/index";
+import UploadForm from "../comps/UploadForm";
+import ImageGrid from "../comps/ImageGrid";
 
 const Routing = () => {
   return (
@@ -30,6 +32,12 @@ const Routing = () => {
           </Route>
           <Route path="/Signup">
             <Signup />
+          </Route>
+          <Route path="/UploadForm">
+            <UploadForm />
+          </Route>
+          <Route path="/ImageGrid">
+            <ImageGrid />
           </Route>
         </Switch>
       </Router>

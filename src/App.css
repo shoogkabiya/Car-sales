@@ -91,3 +91,8 @@ input:focus {
   cursor: pointer;
   margin: 30px;
 }
+.progress-bar {
+  height: 5px;
+  background: #efb6b2;
+  margin-top: 20px;
+}
