@@ -25,7 +25,6 @@ const Routing = () => {
           <Route exact path="/">
             <Signin />
           </Route>
-
           <Route path="/HomePage">
             <HomePage />
           </Route>
