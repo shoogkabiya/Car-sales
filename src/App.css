@@ -10,7 +10,8 @@
   margin: auto;
   margin-top: 5vh;
   width: 414px;
-  height: 90vh;
+  height: 80%;
+  margin-bottom: 5px;
 }
 
 .Signup-input-form,
@@ -40,7 +41,8 @@ input:focus {
 }
 
 .Signin,
-.Signup {
+.Signup,
+.AddCar {
   display: flex;
   color: #161f53;
   width: 50%;
@@ -90,9 +92,4 @@ input:focus {
   width: 50px;
   cursor: pointer;
   margin: 30px;
-}
-.progress-bar {
-  height: 5px;
-  background: #efb6b2;
-  margin-top: 20px;
 }
