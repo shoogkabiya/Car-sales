@@ -1,14 +1,14 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 //icons imports
-import { AddIcon } from "../icons/index";
-import ProgressBar from "./ProgressBar";
+import { AddIcon } from "../../icons/index";
+import HomePage from "../../screens/CarsPage/HomePage";
 
 const UploadForm = () => {
-  const [file, setFile] = useState(null);
-  const [error, setError] = useState(null);
+  const [file, setFile] = useState("");
+  const [error, setError] = useState("");
   const [preview, setPreview] = useState("");
-  const types = ["image/png", "image/jpeg"];
+  const types = ["image/png", "image/jpeg", "image/webp"];
 
   const changeHandler = (e) => {
     let selected = e.target.files[0];
@@ -34,10 +34,15 @@ const UploadForm = () => {
       setPreview(null);
     }
   }, [file]);
+
   return (
     <form>
-      {/* <p>{preview}</p> */}
-      {preview ? <img src={preview} /> : "null"}
+      {preview ? (
+        <img src={preview} width="150" height="100" />
+      ) : (
+        "no picture uppload"
+      )}
+
       <label>
         <input
           type="file"
@@ -50,9 +55,7 @@ const UploadForm = () => {
 
       <div className="error">
         {error && <div className="errormessage">{error}</div>}
-        {file && <div>{file.name}</div>}
-        {file && <ProgressBar file={file} setFile={setFile} />}
-        {/* {file && <img src={selected} width="100" height="50" />} */}
+        {file && <div style={{ display: "none" }}>{file.name}</div>}
       </div>
     </form>
   );
