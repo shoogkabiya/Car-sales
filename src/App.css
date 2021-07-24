@@ -18,7 +18,7 @@
 .form-signin-input {
   display: flex;
   flex-direction: column;
-  padding: 60px;
+  padding: 40px;
 }
 
 input {
@@ -87,9 +87,22 @@ input:focus {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 414px;
+  height: 414px;
 }
 .Add-icon {
   width: 50px;
   cursor: pointer;
   margin: 30px;
+}
+.Vehicledetails {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.UploadForm {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  margin-bottom: 10px;
 }
