@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 //icons imports
 import { AddIcon } from "../../icons/index";
-import HomePage from "../../screens/CarsPage/HomePage";
 
 const UploadForm = () => {
   const [file, setFile] = useState("");

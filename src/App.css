@@ -82,14 +82,13 @@ input:focus {
   margin-bottom: 15px;
 }
 
-.HomePage {
+/* .HomePage {
+  width: 414px;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
-  width: 414px;
-  height: 414px;
-}
+} */
 .Add-icon {
   width: 50px;
   cursor: pointer;

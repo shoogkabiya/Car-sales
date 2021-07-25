@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 
 //screens imports
-import HomePage from "../screens/CarsPage/HomePage";
 import Signin from "../screens/Signin/Signin";
 import Signup from "../screens/Signup/Signup";
 
@@ -24,9 +23,6 @@ const Routing = () => {
         <Switch>
           <Route exact path="/">
             <Signin />
-          </Route>
-          <Route path="/HomePage">
-            <HomePage />
           </Route>
           <Route path="/Signup">
             <Signup />
