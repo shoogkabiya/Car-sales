@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import UploadForm from "../../components/UploadCars/UploadForm";
-// import "./Signin.css";
+import "./Signin.css";
 
 const Signin = () => {
   const [isChecked, setIsChecked] = useState(false);

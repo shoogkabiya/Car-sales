@@ -27,6 +27,7 @@ input {
   border: none;
   padding: 10px;
   border-radius: 10px;
+  margin-bottom: 8px;
 }
 
 input:focus {
@@ -82,13 +83,6 @@ input:focus {
   margin-bottom: 15px;
 }
 
-/* .HomePage {
-  width: 414px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 .Add-icon {
   width: 50px;
   cursor: pointer;
@@ -103,5 +97,4 @@ input:focus {
   display: flex;
   flex-direction: column;
   padding: 40px;
-  margin-bottom: 10px;
 }

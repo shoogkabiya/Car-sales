@@ -10,6 +10,7 @@ import {
 //screens imports
 import Signin from "../screens/Signin/Signin";
 import Signup from "../screens/Signup/Signup";
+import Index from "../screens/Profile/index";
 
 //components imports
 import HeadSection from "../components/HeadSection/index";
