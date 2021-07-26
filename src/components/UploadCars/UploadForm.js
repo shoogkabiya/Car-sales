@@ -64,24 +64,35 @@ const UploadForm = () => {
 
       <div className="error">
         {error && <div className="errormessage">{error}</div>}
+
         {file && <div style={{ display: "none" }}>{file.name}</div>}
+
         <div className="UploadForm">
           <p className="Vehicledetails">Vehicle details</p>
-          <input type="text" placeholder="Version" />
 
-          <input type="text" placeholder="year" />
+          <input type="text" placeholder="Version" className="input-form" />
 
-          <input type="text" placeholder="Engine" />
+          <input type="text" placeholder="year" className="input-form" />
 
-          <input type="text" placeholder="Current mileage" />
+          <input type="text" placeholder="Engine" className="input-form" />
 
-          <input type="text" placeholder="Hand" />
+          <input
+            type="text"
+            placeholder="Current mileage"
+            className="input-form"
+          />
 
-          <input type="text" placeholder="Gearbox" />
+          <input type="text" placeholder="Hand" className="input-form" />
 
-          <input type="text" placeholder="Color" />
+          <input type="text" placeholder="Gearbox" className="input-form" />
 
-          <input type="text" placeholder=" Original ownership" />
+          <input type="text" placeholder="Color" className="input-form" />
+
+          <input
+            type="text"
+            placeholder=" Original ownership"
+            className="input-form"
+          />
 
           <button className="AddCar" type="submit">
             Add
