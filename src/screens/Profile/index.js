@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 const Profile = () => {
   return (
-    <div>
+    <div className="Profile">
       <h1>cars</h1>
     </div>
   );

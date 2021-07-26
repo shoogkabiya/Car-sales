@@ -10,12 +10,13 @@
   margin: auto;
   margin-top: 5vh;
   width: 414px;
-  height: 80%;
+  height: 110vh;
   margin-bottom: 5px;
 }
 
 .Signup-input-form,
-.form-signin-input {
+.form-signin-input,
+.UploadForm {
   display: flex;
   flex-direction: column;
   padding: 60px;
@@ -59,7 +60,8 @@ input:focus {
 }
 
 .Signin,
-.Signup {
+.Signup,
+.AddCar {
   outline: none;
 }
 
@@ -92,9 +94,4 @@ input:focus {
   text-align: center;
   margin-top: 0px;
   margin-bottom: 5px;
-}
-.UploadForm {
-  display: flex;
-  flex-direction: column;
-  padding: 60px;
 }
