@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.css";
-const Index = () => {
+const Profile = () => {
   return (
     <div>
       <h1>cars</h1>
     </div>
   );
 };
-export default Index;
+export default Profile;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { useHistory, Link } from "react-router-dom";
 //icons imports
 import { AddIcon } from "../../icons/index";
 
@@ -8,6 +8,7 @@ const UploadForm = () => {
   const [error, setError] = useState("");
   const [preview, setPreview] = useState("");
   const types = ["image/png", "image/jpeg", "image/webp"];
+  const history = useHistory();
 
   const changeHandler = (e) => {
     let selected = e.target.files[0];
@@ -34,8 +35,17 @@ const UploadForm = () => {
     }
   }, [file]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push("/Profile");
+  };
+
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        handleSubmit(e);
+      }}
+    >
       {preview ? (
         <img src={preview} width="150" height="100" />
       ) : (
@@ -58,29 +68,21 @@ const UploadForm = () => {
         <div className="UploadForm">
           <p className="Vehicledetails">Vehicle details</p>
           <input type="text" placeholder="Version" />
-          {/* <br />
-          <br /> */}
+
           <input type="text" placeholder="year" />
-          {/* <br />
-          <br /> */}
+
           <input type="text" placeholder="Engine" />
-          {/* <br />
-          <br /> */}
+
           <input type="text" placeholder="Current mileage" />
-          {/* <br />
-          <br /> */}
+
           <input type="text" placeholder="Hand" />
-          {/* <br />
-          <br /> */}
+
           <input type="text" placeholder="Gearbox" />
-          {/* <br />
-          <br /> */}
+
           <input type="text" placeholder="Color" />
-          {/* <br />
-          <br /> */}
+
           <input type="text" placeholder=" Original ownership" />
-          {/* <br />
-          <br /> */}
+
           <button className="AddCar" type="submit">
             Add
           </button>

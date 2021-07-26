@@ -10,7 +10,7 @@ import {
 //screens imports
 import Signin from "../screens/Signin/Signin";
 import Signup from "../screens/Signup/Signup";
-import Index from "../screens/Profile/index";
+import Profile from "../screens/Profile/index";
 
 //components imports
 import HeadSection from "../components/HeadSection/index";
@@ -30,6 +30,9 @@ const Routing = () => {
           </Route>
           <Route path="/UploadForm">
             <UploadForm />
+          </Route>
+          <Route path="/Profile">
+            <Profile />
           </Route>
         </Switch>
       </Router>
