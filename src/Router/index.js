@@ -11,10 +11,10 @@ import {
 import Signin from "../screens/Signin/Signin";
 import Signup from "../screens/Signup/Signup";
 import Profile from "../screens/Profile/index";
+import UploadForm from "../screens/UploadCars/UploadForm";
 
 //components imports
 import HeadSection from "../components/HeadSection/index";
-import UploadForm from "../components/UploadCars/UploadForm";
 
 const Routing = () => {
   return (

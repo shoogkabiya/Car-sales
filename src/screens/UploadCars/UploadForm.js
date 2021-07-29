@@ -7,9 +7,49 @@ const UploadForm = () => {
   const [file, setFile] = useState("");
   const [error, setError] = useState("");
   const [preview, setPreview] = useState("");
+  const [year, setYear] = useState("");
+  const [version, setVersion] = useState("");
+  const [engine, setEngine] = useState("");
+  const [isValidYear, setIsValidYear] = useState(false);
+  const [isValidVersion, setIsValidVersion] = useState(false);
+  const [isValidEngine, setIsValidEngine] = useState(false);
   const types = ["image/png", "image/jpeg", "image/webp"];
   const history = useHistory();
 
+  ////validation
+  const validateYear = (event) => {
+    const patternyear = /^\d{4}$/i;
+    setYear(event.target.value);
+    if (patternyear.test(event.target.value)) {
+      console.log("year:", "year");
+      setIsValidYear(true);
+    } else {
+      setIsValidYear(false);
+    }
+  };
+  ////
+  const validateVersion = (event) => {
+    const patternversion = /[a-ת_]/gi;
+    setVersion(event.target.value);
+    if (patternversion.test(event.target.value)) {
+      console.log("version:", "engine");
+      setIsValidVersion(true);
+    } else {
+      setIsValidVersion(false);
+    }
+  };
+  ////
+  const validateEngine = (event) => {
+    const patternengine = /[a-ת_\d]/gi;
+    setEngine(event.target.value);
+    if (patternengine.test(event.target.value)) {
+      console.log("engine:", "engine");
+      setIsValidEngine(true);
+    } else {
+      setIsValidEngine(false);
+    }
+  };
+  ////
   const changeHandler = (e) => {
     let selected = e.target.files[0];
     if (selected && types.includes(selected.type)) {
@@ -37,7 +77,10 @@ const UploadForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push("/Profile");
+    if (isValidYear && preview && isValidVersion && isValidEngine) {
+      console.log("Correct data");
+      history.push("/Profile");
+    }
   };
 
   return (
@@ -70,11 +113,29 @@ const UploadForm = () => {
         <div className="UploadForm">
           <p className="Vehicledetails">Vehicle details</p>
 
-          <input type="text" placeholder="Version" className="input-form" />
+          <input
+            type="text"
+            placeholder="Version"
+            value={version}
+            onChange={validateVersion}
+            className="input-form"
+          />
 
-          <input type="text" placeholder="year" className="input-form" />
+          <input
+            type="text"
+            placeholder="year"
+            value={year}
+            className="input-form"
+            onChange={validateYear}
+          />
 
-          <input type="text" placeholder="Engine" className="input-form" />
+          <input
+            type="text"
+            placeholder="Engine"
+            value={engine}
+            className="input-form"
+            onChange={validateEngine}
+          />
 
           <input
             type="text"
