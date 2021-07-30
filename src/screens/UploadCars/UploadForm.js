@@ -10,9 +10,11 @@ const UploadForm = () => {
   const [year, setYear] = useState("");
   const [version, setVersion] = useState("");
   const [engine, setEngine] = useState("");
+  const [currentmileage, setCurrentmileage] = useState("");
   const [isValidYear, setIsValidYear] = useState(false);
   const [isValidVersion, setIsValidVersion] = useState(false);
   const [isValidEngine, setIsValidEngine] = useState(false);
+  const [isValidcurrentmileage, setIsValidCurrentmileage] = useState(false);
   const types = ["image/png", "image/jpeg", "image/webp"];
   const history = useHistory();
 
@@ -50,6 +52,17 @@ const UploadForm = () => {
     }
   };
   ////
+  const validateCurrentmileage = (event) => {
+    const patterncurrentmileage = /[,\d]/gi;
+    setCurrentmileage(event.target.value);
+    if (patterncurrentmileage.test(event.target.value)) {
+      console.log("currentmileage:", "currentmileage");
+      setIsValidCurrentmileage(true);
+    } else {
+      setIsValidCurrentmileage(false);
+    }
+  };
+  ////
   const changeHandler = (e) => {
     let selected = e.target.files[0];
     if (selected && types.includes(selected.type)) {
@@ -77,7 +90,13 @@ const UploadForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isValidYear && preview && isValidVersion && isValidEngine) {
+    if (
+      isValidYear &&
+      preview &&
+      isValidVersion &&
+      isValidEngine &&
+      isValidcurrentmileage
+    ) {
       console.log("Correct data");
       history.push("/Profile");
     }
@@ -140,7 +159,9 @@ const UploadForm = () => {
           <input
             type="text"
             placeholder="Current mileage"
+            value={currentmileage}
             className="input-form"
+            onChange={validateCurrentmileage}
           />
 
           <input type="text" placeholder="Hand" className="input-form" />
