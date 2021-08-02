@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
+
 //icons imports
 import { AddIcon } from "../../icons/index";
 
@@ -11,10 +12,12 @@ const UploadForm = () => {
   const [version, setVersion] = useState("");
   const [engine, setEngine] = useState("");
   const [currentmileage, setCurrentmileage] = useState("");
+  const [hand, setHand] = useState("");
   const [isValidYear, setIsValidYear] = useState(false);
   const [isValidVersion, setIsValidVersion] = useState(false);
   const [isValidEngine, setIsValidEngine] = useState(false);
   const [isValidcurrentmileage, setIsValidCurrentmileage] = useState(false);
+  const [isValidhand, setIsValidHand] = useState(false);
   const types = ["image/png", "image/jpeg", "image/webp"];
   const history = useHistory();
 
@@ -34,7 +37,7 @@ const UploadForm = () => {
     const patternversion = /[a-ת_]/gi;
     setVersion(event.target.value);
     if (patternversion.test(event.target.value)) {
-      console.log("version:", "engine");
+      console.log("version:", "version");
       setIsValidVersion(true);
     } else {
       setIsValidVersion(false);
@@ -60,6 +63,17 @@ const UploadForm = () => {
       setIsValidCurrentmileage(true);
     } else {
       setIsValidCurrentmileage(false);
+    }
+  };
+  ////
+  const validateHand = (event) => {
+    const patternhand = /^\d$/gi;
+    setHand(event.target.value);
+    if (patternhand.test(event.target.value)) {
+      console.log("hand:", "hand");
+      setIsValidHand(true);
+    } else {
+      setIsValidHand(false);
     }
   };
   ////
@@ -95,7 +109,8 @@ const UploadForm = () => {
       preview &&
       isValidVersion &&
       isValidEngine &&
-      isValidcurrentmileage
+      isValidcurrentmileage &&
+      isValidhand
     ) {
       console.log("Correct data");
       history.push("/Profile");
@@ -164,7 +179,13 @@ const UploadForm = () => {
             onChange={validateCurrentmileage}
           />
 
-          <input type="text" placeholder="Hand" className="input-form" />
+          <input
+            type="text"
+            placeholder="Hand"
+            value={hand}
+            onChange={validateHand}
+            className="input-form"
+          />
 
           <input type="text" placeholder="Gearbox" className="input-form" />
 
