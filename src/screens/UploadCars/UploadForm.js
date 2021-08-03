@@ -33,22 +33,11 @@ const UploadForm = () => {
     isValidannuallicensingfee,
     setIsValidHandAnnuallicensingfee,
   ] = useState(false);
-
+  ////
   const types = ["image/png", "image/jpeg", "image/webp"];
   const history = useHistory();
-
-  ////validation
-  const validateYear = (event) => {
-    const patternyear = /^\d{4}$/i;
-    setYear(event.target.value);
-    if (patternyear.test(event.target.value)) {
-      console.log("year:", "year");
-      setIsValidYear(true);
-    } else {
-      setIsValidYear(false);
-    }
-  };
   ////
+  ////validation
   const validateVersion = (event) => {
     const patternversion = /[a-ת_]/gi;
     setVersion(event.target.value);
@@ -57,6 +46,17 @@ const UploadForm = () => {
       setIsValidVersion(true);
     } else {
       setIsValidVersion(false);
+    }
+  };
+  ////
+  const validateYear = (event) => {
+    const patternyear = /^\d{4}$/i;
+    setYear(event.target.value);
+    if (patternyear.test(event.target.value)) {
+      console.log("year:", "year");
+      setIsValidYear(true);
+    } else {
+      setIsValidYear(false);
     }
   };
   ////
@@ -90,6 +90,50 @@ const UploadForm = () => {
       setIsValidHand(true);
     } else {
       setIsValidHand(false);
+    }
+  };
+  ////
+  const validategearbox = (event) => {
+    const patterngearbox = /[א-ת]/gi;
+    setGearbox(event.target.value);
+    if (patterngearbox.test(event.target.value)) {
+      console.log("gearbox:", "gearbox");
+      setIsValidGearbox(true);
+    } else {
+      setIsValidGearbox(false);
+    }
+  };
+  ////
+  const validatecolor = (event) => {
+    const patterncolor = /[א-ת]/gi;
+    setColor(event.target.value);
+    if (patterncolor.test(event.target.value)) {
+      console.log("color:", "color");
+      setIsValidColor(true);
+    } else {
+      setIsValidColor(false);
+    }
+  };
+  ////
+  const validateoriginalownership = (event) => {
+    const patternoriginalownership = /[א-ת]/gi;
+    setOriginalownership(event.target.value);
+    if (patternoriginalownership.test(event.target.value)) {
+      console.log("originalownership:", "originalownership");
+      setIsValidOriginalownership(true);
+    } else {
+      setIsValidOriginalownership(false);
+    }
+  };
+  ////
+  const validateNexttest = (event) => {
+    const patternnexttest = /[א-ת\d]/gi;
+    setNexttest(event.target.value);
+    if (patternnexttest.test(event.target.value)) {
+      console.log("nexttest:", "nexttest");
+      setIsValidNexttest(true);
+    } else {
+      setIsValidNexttest(false);
     }
   };
   ////
@@ -132,19 +176,23 @@ const UploadForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      isValidYear &&
       preview &&
       isValidVersion &&
+      isValidYear &&
       isValidEngine &&
       isValidcurrentmileage &&
       isValidhand &&
+      isValidgearbox &&
+      isValidcolor &&
+      isValidoriginalownership &&
+      isValidnexttest &&
       isValidannuallicensingfee
     ) {
       console.log("Correct data");
       history.push("/Profile");
     }
   };
-
+  ////
   return (
     <form
       onSubmit={(e) => {
@@ -156,7 +204,6 @@ const UploadForm = () => {
       ) : (
         "no picture uppload"
       )}
-
       <label>
         <input
           type="file"
@@ -166,15 +213,11 @@ const UploadForm = () => {
         />
         <AddIcon className="Add-icon"></AddIcon>
       </label>
-
       <div className="error">
         {error && <div className="errormessage">{error}</div>}
-
         {file && <div style={{ display: "none" }}>{file.name}</div>}
-
         <div className="UploadForm">
           <p className="Vehicledetails">Vehicle details</p>
-
           <input
             type="text"
             placeholder="Version"
@@ -187,24 +230,24 @@ const UploadForm = () => {
             type="text"
             placeholder="year"
             value={year}
-            className="input-form"
             onChange={validateYear}
+            className="input-form"
           />
 
           <input
             type="text"
             placeholder="Engine"
             value={engine}
-            className="input-form"
             onChange={validateEngine}
+            className="input-form"
           />
 
           <input
             type="text"
             placeholder="Current mileage"
             value={currentmileage}
-            className="input-form"
             onChange={validateCurrentmileage}
+            className="input-form"
           />
 
           <input
@@ -215,15 +258,38 @@ const UploadForm = () => {
             className="input-form"
           />
 
-          <input type="text" placeholder="Gearbox" className="input-form" />
-
-          <input type="text" placeholder="Color" className="input-form" />
+          <input
+            type="text"
+            placeholder="Gearbox"
+            value={gearbox}
+            onChange={validategearbox}
+            className="input-form"
+          />
 
           <input
             type="text"
-            placeholder=" Original ownership"
+            placeholder="Color"
+            value={color}
+            onChange={validatecolor}
             className="input-form"
           />
+
+          <input
+            type="text"
+            value={originalownership}
+            placeholder="Original ownership"
+            onChange={validateoriginalownership}
+            className="input-form"
+          />
+
+          <input
+            type="text"
+            placeholder="Next Test"
+            value={nexttest}
+            onChange={validateNexttest}
+            className="input-form"
+          />
+
           <input
             type="text"
             placeholder=" Annual licensing fee"
