@@ -8,16 +8,32 @@ const UploadForm = () => {
   const [file, setFile] = useState("");
   const [error, setError] = useState("");
   const [preview, setPreview] = useState("");
-  const [year, setYear] = useState("");
   const [version, setVersion] = useState("");
+  const [year, setYear] = useState("");
   const [engine, setEngine] = useState("");
   const [currentmileage, setCurrentmileage] = useState("");
   const [hand, setHand] = useState("");
-  const [isValidYear, setIsValidYear] = useState(false);
+  const [gearbox, setGearbox] = useState("");
+  const [color, setColor] = useState("");
+  const [originalownership, setOriginalownership] = useState("");
+  const [nexttest, setNexttest] = useState("");
+  const [annuallicensingfee, setAnnuallicensingfee] = useState("");
   const [isValidVersion, setIsValidVersion] = useState(false);
+  const [isValidYear, setIsValidYear] = useState(false);
   const [isValidEngine, setIsValidEngine] = useState(false);
   const [isValidcurrentmileage, setIsValidCurrentmileage] = useState(false);
   const [isValidhand, setIsValidHand] = useState(false);
+  const [isValidgearbox, setIsValidGearbox] = useState(false);
+  const [isValidcolor, setIsValidColor] = useState(false);
+  const [isValidoriginalownership, setIsValidOriginalownership] = useState(
+    false
+  );
+  const [isValidnexttest, setIsValidNexttest] = useState(false);
+  const [
+    isValidannuallicensingfee,
+    setIsValidHandAnnuallicensingfee,
+  ] = useState(false);
+
   const types = ["image/png", "image/jpeg", "image/webp"];
   const history = useHistory();
 
@@ -77,6 +93,17 @@ const UploadForm = () => {
     }
   };
   ////
+  const validateAnnuallicensingfee = (event) => {
+    const patternannuallicensingfee = /[,\d]/gi;
+    setAnnuallicensingfee(event.target.value);
+    if (patternannuallicensingfee.test(event.target.value)) {
+      console.log("annuallicensingfee:", "annuallicensingfee");
+      setIsValidHandAnnuallicensingfee(true);
+    } else {
+      setIsValidHandAnnuallicensingfee(false);
+    }
+  };
+  ////
   const changeHandler = (e) => {
     let selected = e.target.files[0];
     if (selected && types.includes(selected.type)) {
@@ -110,7 +137,8 @@ const UploadForm = () => {
       isValidVersion &&
       isValidEngine &&
       isValidcurrentmileage &&
-      isValidhand
+      isValidhand &&
+      isValidannuallicensingfee
     ) {
       console.log("Correct data");
       history.push("/Profile");
@@ -194,6 +222,13 @@ const UploadForm = () => {
           <input
             type="text"
             placeholder=" Original ownership"
+            className="input-form"
+          />
+          <input
+            type="text"
+            placeholder=" Annual licensing fee"
+            value={annuallicensingfee}
+            onChange={validateAnnuallicensingfee}
             className="input-form"
           />
 
