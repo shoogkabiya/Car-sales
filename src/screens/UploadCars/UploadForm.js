@@ -189,7 +189,7 @@ const UploadForm = () => {
       isValidannuallicensingfee
     ) {
       console.log("Correct data");
-      history.push("/Profile");
+      history.push("/PageCars");
     }
   };
   ////
