@@ -5,9 +5,9 @@ import { useHistory, Link } from "react-router-dom";
 import { AddIcon } from "../../icons/index";
 
 const UploadForm = () => {
-  const [file, setFile] = useState("");
-  const [error, setError] = useState("");
-  const [preview, setPreview] = useState("");
+  const [file, setFile] = useState(null);
+  const [error, setError] = useState(null);
+  const [preview, setPreview] = useState(null);
   const [version, setVersion] = useState("");
   const [year, setYear] = useState("");
   const [engine, setEngine] = useState("");
