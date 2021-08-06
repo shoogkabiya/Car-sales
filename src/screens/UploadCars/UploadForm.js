@@ -93,7 +93,7 @@ const UploadForm = () => {
     }
   };
   ////
-  const validategearbox = (event) => {
+  const validateGearbox = (event) => {
     const patterngearbox = /[א-ת]/gi;
     setGearbox(event.target.value);
     if (patterngearbox.test(event.target.value)) {
@@ -104,7 +104,7 @@ const UploadForm = () => {
     }
   };
   ////
-  const validatecolor = (event) => {
+  const validateColor = (event) => {
     const patterncolor = /[א-ת]/gi;
     setColor(event.target.value);
     if (patterncolor.test(event.target.value)) {
@@ -115,7 +115,7 @@ const UploadForm = () => {
     }
   };
   ////
-  const validateoriginalownership = (event) => {
+  const validateOriginalownership = (event) => {
     const patternoriginalownership = /[א-ת]/gi;
     setOriginalownership(event.target.value);
     if (patternoriginalownership.test(event.target.value)) {
@@ -262,7 +262,7 @@ const UploadForm = () => {
             type="text"
             placeholder="Gearbox"
             value={gearbox}
-            onChange={validategearbox}
+            onChange={validateGearbox}
             className="input-form"
           />
 
@@ -270,7 +270,7 @@ const UploadForm = () => {
             type="text"
             placeholder="Color"
             value={color}
-            onChange={validatecolor}
+            onChange={validateColor}
             className="input-form"
           />
 
@@ -278,7 +278,7 @@ const UploadForm = () => {
             type="text"
             value={originalownership}
             placeholder="Original ownership"
-            onChange={validateoriginalownership}
+            onChange={validateOriginalownership}
             className="input-form"
           />
 

@@ -37,6 +37,7 @@ const Signin = () => {
   ////userIschecked
   const validateUser = () => {
     const checkedUser = document.getElementById("user");
+    console.log("checkedUser:", checkedUser);
     if (checkedUser) {
       setUserisChecked(true);
     }
