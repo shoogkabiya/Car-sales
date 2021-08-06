@@ -5,6 +5,7 @@ import "./Signin.css";
 
 const Signin = () => {
   const [isChecked, setIsChecked] = useState(false);
+  const [userisChecked, setUserisChecked] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isValidUsername, setIsValidUsername] = useState(false);
@@ -33,10 +34,18 @@ const Signin = () => {
       setIsValidPassword(false);
     }
   };
+  ////userIschecked
+  const validateUser = () => {
+    const checkedUser = document.getElementById("user");
+    if (checkedUser) {
+      setUserisChecked(true);
+    }
+  };
+
   //// Submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isValidUsername && isValidPassword && isChecked) {
+    if (isValidUsername && isValidPassword && userisChecked) {
       console.log("ValidUsername,ValidPassword");
       history.push("/UploadForm");
     }
@@ -84,7 +93,8 @@ const Signin = () => {
             <input
               type="radio"
               name="role"
-              id="role-box"
+              id="user"
+              onClick={() => validateUser()}
               onChange={() => setIsChecked(!isChecked)}
             />
           </div>
@@ -93,7 +103,7 @@ const Signin = () => {
             <input
               type="radio"
               name="role"
-              id="role-box"
+              id="consumer"
               onChange={() => setIsChecked(!isChecked)}
             />
           </div>

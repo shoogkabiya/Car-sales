@@ -153,7 +153,7 @@ const UploadForm = () => {
     if (selected && types.includes(selected.type)) {
       setFile(selected);
       setError("");
-      console.log(selected);
+      console.log("typeof:", typeof selected);
     } else {
       setFile(null);
       setError("Please select an image file(png or jpeg)");
