@@ -3,6 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 
 //icons imports
 import { AddIcon } from "../../icons/index";
+import PageCars from "../PageCars";
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
@@ -21,16 +22,16 @@ const UploadForm = () => {
   const [isValidVersion, setIsValidVersion] = useState(false);
   const [isValidYear, setIsValidYear] = useState(false);
   const [isValidEngine, setIsValidEngine] = useState(false);
-  const [isValidcurrentmileage, setIsValidCurrentmileage] = useState(false);
-  const [isValidhand, setIsValidHand] = useState(false);
-  const [isValidgearbox, setIsValidGearbox] = useState(false);
-  const [isValidcolor, setIsValidColor] = useState(false);
-  const [isValidoriginalownership, setIsValidOriginalownership] = useState(
+  const [isValidCurrentmileage, setIsValidCurrentmileage] = useState(false);
+  const [isValidHand, setIsValidHand] = useState(false);
+  const [isValidGearbox, setIsValidGearbox] = useState(false);
+  const [isValidColor, setIsValidColor] = useState(false);
+  const [isValidOriginalownership, setIsValidOriginalownership] = useState(
     false
   );
-  const [isValidnexttest, setIsValidNexttest] = useState(false);
+  const [isValidNexttest, setIsValidNexttest] = useState(false);
   const [
-    isValidannuallicensingfee,
+    isValidAnnuallicensingfee,
     setIsValidHandAnnuallicensingfee,
   ] = useState(false);
   ////
@@ -180,16 +181,16 @@ const UploadForm = () => {
       isValidVersion &&
       isValidYear &&
       isValidEngine &&
-      isValidcurrentmileage &&
-      isValidhand &&
-      isValidgearbox &&
-      isValidcolor &&
-      isValidoriginalownership &&
-      isValidnexttest &&
-      isValidannuallicensingfee
+      isValidCurrentmileage &&
+      isValidHand &&
+      isValidGearbox &&
+      isValidColor &&
+      isValidOriginalownership &&
+      isValidNexttest &&
+      isValidAnnuallicensingfee
     ) {
       console.log("Correct data");
-      history.push("/PageCars");
+      history.push("/Cars");
     }
   };
   ////
@@ -204,6 +205,7 @@ const UploadForm = () => {
       ) : (
         "no picture uppload"
       )}
+
       <label>
         <input
           type="file"
@@ -297,7 +299,9 @@ const UploadForm = () => {
             onChange={validateAnnuallicensingfee}
             className="input-form"
           />
-
+          <div>
+            <PageCars preview={preview} />
+          </div>
           <button className="AddCar" type="submit">
             Add
           </button>

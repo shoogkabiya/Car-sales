@@ -31,7 +31,7 @@ const Routing = () => {
           <Route path="/UploadForm">
             <UploadForm />
           </Route>
-          <Route path="/PageCars">
+          <Route path="/Cars">
             <PageCars />
           </Route>
         </Switch>
