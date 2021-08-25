@@ -36,6 +36,7 @@ const UploadForm = () => {
   ] = useState(false);
   ////
   const types = ["image/png", "image/jpeg", "image/webp"];
+  const [imagesArray, setImagesArray] = useState([]);
   const history = useHistory();
   ////
   ////validation
@@ -190,10 +191,18 @@ const UploadForm = () => {
       isValidAnnuallicensingfee
     ) {
       console.log("Correct data");
+
+      // <PageCars ImagesArray={ImagesArray} />;
+      imagesArray.push(preview);
+      setImagesArray(imagesArray);
+      console.log("ImagesArray:", imagesArray);
       history.push("/Cars");
     }
   };
   ////
+
+  // console.log("ImagesArray:", ImagesArray);
+  // console.log("preview:", preview);
   return (
     <form
       onSubmit={(e) => {
@@ -299,12 +308,11 @@ const UploadForm = () => {
             onChange={validateAnnuallicensingfee}
             className="input-form"
           />
-          <div>
-            <PageCars preview={preview} />
-          </div>
+
           <button className="AddCar" type="submit">
             Add
           </button>
+          <PageCars imagesArray={imagesArray} />
         </div>
       </div>
     </form>
