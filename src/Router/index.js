@@ -10,7 +10,7 @@ import {
 //screens imports
 import Signin from "../screens/Signin/Signin";
 import Signup from "../screens/Signup/Signup";
-import PageCars from "../screens/PageCars/index";
+import PageCars from "../screens/PageCars";
 import UploadForm from "../screens/UploadCars/UploadForm";
 
 //components imports

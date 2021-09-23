@@ -46,10 +46,39 @@ const Signin = () => {
   //// Submit
   const handleSubmit = (e) => {
     e.preventDefault();
+    var pathurl;
     if (isValidUsername && isValidPassword && userisChecked) {
       console.log("ValidUsername,ValidPassword");
+      pathurl = "http://localhost:4000/user/signin";
       history.push("/UploadForm");
+    } else {
+      pathurl = "http://localhost:4000/consumer/signin";
     }
+    fetch(pathurl, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    })
+      .then((response) => {
+        console.log("response:", response);
+        return response.json();
+      })
+      .then((object) => {
+        console.log(object);
+        if (object.access_token) {
+          window.location.pathname = "/UploadForm";
+        } else {
+          return object;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   ////
   return (

@@ -165,11 +165,13 @@ const UploadForm = () => {
   useEffect(() => {
     if (file) {
       const reader = new FileReader();
-
+      console.log("reader:", reader);
       reader.onloadend = () => {
         setPreview(reader.result);
       };
       reader.readAsDataURL(file);
+      console.log("file:", file.name);
+      // <PageCars image={file} />;
     } else {
       setPreview(null);
     }
@@ -191,24 +193,23 @@ const UploadForm = () => {
       isValidAnnuallicensingfee
     ) {
       console.log("Correct data");
-
-      // <PageCars ImagesArray={ImagesArray} />;
+      history.push("/Cars");
       imagesArray.push(preview);
       setImagesArray(imagesArray);
       console.log("ImagesArray:", imagesArray);
-      history.push("/Cars");
     }
   };
   ////
-
-  // console.log("ImagesArray:", ImagesArray);
-  // console.log("preview:", preview);
+  console.log("preview:", preview);
   return (
     <form
       onSubmit={(e) => {
         handleSubmit(e);
       }}
     >
+      {/* <img src={preview} /> */}
+      {/* <PageCars image={preview} /> */}
+      <PageCars text="image" />
       {preview ? (
         <img src={preview} width="150" height="100" />
       ) : (
@@ -219,11 +220,13 @@ const UploadForm = () => {
         <input
           type="file"
           onChange={changeHandler}
+          multiple
           style={{ display: "none" }}
           accept="image/*"
         />
         <AddIcon className="Add-icon"></AddIcon>
       </label>
+
       <div className="error">
         {error && <div className="errormessage">{error}</div>}
         {file && <div style={{ display: "none" }}>{file.name}</div>}
@@ -312,7 +315,6 @@ const UploadForm = () => {
           <button className="AddCar" type="submit">
             Add
           </button>
-          <PageCars imagesArray={imagesArray} />
         </div>
       </div>
     </form>
