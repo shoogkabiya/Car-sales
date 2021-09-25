@@ -1,7 +1,6 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-<a href="https://localhost:3000/carsales.app/">here</a>
 
 ## Available Scripts
 
