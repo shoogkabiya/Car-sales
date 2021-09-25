@@ -6,21 +6,21 @@ import "./Signin.css";
 const Signin = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [userisChecked, setUserisChecked] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [isValidUsername, setIsValidUsername] = useState(false);
+  const [email, setEmail] = useState("");
+  const [user_password, setPassword] = useState("");
+  const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
   const history = useHistory();
 
   ////validation
-  const validateUsername = (event) => {
-    const patternUsername = /^[a-z\d]{5,12}$/i;
-    setUsername(event.target.value);
-    if (patternUsername.test(event.target.value)) {
-      console.log("username:", "usernametrue");
-      setIsValidUsername(true);
+  const validateEmail = (event) => {
+    const email = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+    setEmail(event.target.value);
+    if (email.test(event.target.value)) {
+      console.log("Email:", "Emailtrue");
+      setIsValidEmail(true);
     } else {
-      setIsValidUsername(false);
+      setIsValidEmail(false);
     }
   };
   ////
@@ -47,21 +47,20 @@ const Signin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     var pathurl;
-    if (isValidUsername && isValidPassword && userisChecked) {
-      console.log("ValidUsername,ValidPassword");
+    if (isValidEmail && isValidPassword && userisChecked) {
+      console.log("ValidEmail,ValidPassword");
       pathurl = "http://localhost:4000/user/signin";
       history.push("/UploadForm");
-    } else {
-      pathurl = "http://localhost:4000/consumer/signin";
     }
+
     fetch(pathurl, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        username,
-        password,
+        email,
+        user_password,
       }),
     })
       .then((response) => {
@@ -89,21 +88,21 @@ const Signin = () => {
         }}
       >
         <input
-          name="username"
-          placeholder="Username"
-          value={username}
+          name="email"
+          placeholder="Email"
+          value={email}
           className="input-form"
-          onChange={validateUsername}
-          type="text"
+          onChange={validateEmail}
+          type="email"
         />
 
-        {!isValidUsername && <p className="error">Your username is invalid</p>}
+        {!isValidEmail && <p className="error">Your username is invalid</p>}
         <br />
         <br />
         <input
           name="password"
           placeholder="password"
-          value={password}
+          value={user_password}
           className="input-form"
           onChange={validatePassword}
           type="password"
