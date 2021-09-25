@@ -7,7 +7,7 @@ const Signin = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [userisChecked, setUserisChecked] = useState(false);
   const [email, setEmail] = useState("");
-  const [user_password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
   const history = useHistory();
@@ -50,7 +50,6 @@ const Signin = () => {
     if (isValidEmail && isValidPassword && userisChecked) {
       console.log("ValidEmail,ValidPassword");
       pathurl = "http://localhost:4000/user/signin";
-      history.push("/UploadForm");
     }
 
     fetch(pathurl, {
@@ -60,7 +59,7 @@ const Signin = () => {
       },
       body: JSON.stringify({
         email,
-        user_password,
+        password,
       }),
     })
       .then((response) => {
@@ -102,7 +101,7 @@ const Signin = () => {
         <input
           name="password"
           placeholder="password"
-          value={user_password}
+          value={password}
           className="input-form"
           onChange={validatePassword}
           type="password"
