@@ -6,6 +6,7 @@ import "./Signin.css";
 const Signin = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [userisChecked, setUserisChecked] = useState(false);
+  const [consumerischecked, setConsumerisChecked] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(false);
@@ -43,6 +44,14 @@ const Signin = () => {
     }
   };
 
+  ////consumerIschecked
+  const validateConsumer = () => {
+    const checkedConsumer = document.getElementById("consumer");
+    console.log("checkedConsumer:", checkedConsumer);
+    if (checkedConsumer) {
+      setConsumerisChecked(true);
+    }
+  };
   //// Submit
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +60,7 @@ const Signin = () => {
       console.log("ValidEmail,ValidPassword");
       pathurl = "http://localhost:4000/user/signin";
       history.push("/UploadForm");
-    } else if (isValidEmail && isValidPassword) {
+    } else if (isValidEmail && isValidPassword && consumerischecked) {
       pathurl = "http://localhost:4000/consumer/signin";
       history.push("/Cars");
     }
@@ -70,6 +79,7 @@ const Signin = () => {
         console.log("response:", response);
         return response.json();
       })
+
       .then((object) => {
         console.log(object);
         if (object.access_token) {
@@ -137,6 +147,7 @@ const Signin = () => {
               type="radio"
               name="role"
               id="consumer"
+              onClick={() => validateConsumer()}
               onChange={() => setIsChecked(!isChecked)}
             />
           </div>
