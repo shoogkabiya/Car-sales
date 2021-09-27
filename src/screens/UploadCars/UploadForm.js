@@ -207,9 +207,6 @@ const UploadForm = () => {
         handleSubmit(e);
       }}
     >
-      {/* <img src={preview} /> */}
-      {/* <PageCars image={preview} /> */}
-      <PageCars text="image" />
       {preview ? (
         <img src={preview} width="150" height="100" />
       ) : (

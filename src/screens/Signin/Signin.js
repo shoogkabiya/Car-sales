@@ -50,6 +50,10 @@ const Signin = () => {
     if (isValidEmail && isValidPassword && userisChecked) {
       console.log("ValidEmail,ValidPassword");
       pathurl = "http://localhost:4000/user/signin";
+      history.push("/UploadForm");
+    } else if (isValidEmail && isValidPassword) {
+      pathurl = "http://localhost:4000/consumer/signin";
+      history.push("/Cars");
     }
 
     fetch(pathurl, {
@@ -69,7 +73,7 @@ const Signin = () => {
       .then((object) => {
         console.log(object);
         if (object.access_token) {
-          window.location.pathname = "/UploadForm";
+          localStorage.setItem("access_token", object.access_token);
         } else {
           return object;
         }
@@ -78,6 +82,7 @@ const Signin = () => {
         console.log(error);
       });
   };
+
   ////
   return (
     <div className="form-signin-input">
