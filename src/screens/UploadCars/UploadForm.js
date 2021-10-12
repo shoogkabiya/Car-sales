@@ -3,7 +3,9 @@ import { useHistory, Link } from "react-router-dom";
 
 //icons imports
 import { AddIcon } from "../../icons/index";
-import PageCars from "../PageCars";
+// import PageCars from "../PageCars";
+//
+import { addCars } from "../../api/api";
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
@@ -12,13 +14,13 @@ const UploadForm = () => {
   const [version, setVersion] = useState("");
   const [year, setYear] = useState("");
   const [engine, setEngine] = useState("");
-  const [currentmileage, setCurrentmileage] = useState("");
+  const [current_mileage, setCurrentmileage] = useState("");
   const [hand, setHand] = useState("");
   const [gearbox, setGearbox] = useState("");
   const [color, setColor] = useState("");
-  const [originalownership, setOriginalownership] = useState("");
-  const [nexttest, setNexttest] = useState("");
-  const [annuallicensingfee, setAnnuallicensingfee] = useState("");
+  const [original_ownership, setOriginalownership] = useState("");
+  const [next_test, setNexttest] = useState("");
+  const [annual_licensing_fee, setAnnuallicensingfee] = useState("");
   const [isValidVersion, setIsValidVersion] = useState(false);
   const [isValidYear, setIsValidYear] = useState(false);
   const [isValidEngine, setIsValidEngine] = useState(false);
@@ -193,10 +195,24 @@ const UploadForm = () => {
       isValidAnnuallicensingfee
     ) {
       console.log("Correct data");
+
+      addCars({
+        preview,
+        version,
+        year,
+        engine,
+        current_mileage,
+        hand,
+        gearbox,
+        color,
+        original_ownership,
+        next_test,
+        annual_licensing_fee,
+      });
       history.push("/Cars");
-      imagesArray.push(preview);
-      setImagesArray(imagesArray);
-      console.log("ImagesArray:", imagesArray);
+      // imagesArray.push(preview);
+      // setImagesArray(imagesArray);
+      // console.log("ImagesArray:", imagesArray);
     }
   };
   ////
@@ -256,7 +272,7 @@ const UploadForm = () => {
           <input
             type="text"
             placeholder="Current mileage"
-            value={currentmileage}
+            value={current_mileage}
             onChange={validateCurrentmileage}
             className="input-form"
           />
@@ -287,7 +303,7 @@ const UploadForm = () => {
 
           <input
             type="text"
-            value={originalownership}
+            value={original_ownership}
             placeholder="Original ownership"
             onChange={validateOriginalownership}
             className="input-form"
@@ -296,7 +312,7 @@ const UploadForm = () => {
           <input
             type="text"
             placeholder="Next Test"
-            value={nexttest}
+            value={next_test}
             onChange={validateNexttest}
             className="input-form"
           />
@@ -304,7 +320,7 @@ const UploadForm = () => {
           <input
             type="text"
             placeholder=" Annual licensing fee"
-            value={annuallicensingfee}
+            value={annual_licensing_fee}
             onChange={validateAnnuallicensingfee}
             className="input-form"
           />
