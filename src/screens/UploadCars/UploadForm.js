@@ -10,7 +10,7 @@ import { addCars } from "../../api/api";
 const UploadForm = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
-  const [preview, setPreview] = useState(null);
+  const [images, setImages] = useState(null);
   const [version, setVersion] = useState("");
   const [year, setYear] = useState("");
   const [engine, setEngine] = useState("");
@@ -38,7 +38,7 @@ const UploadForm = () => {
   ] = useState(false);
   ////
   const types = ["image/png", "image/jpeg", "image/webp"];
-  const [imagesArray, setImagesArray] = useState([]);
+  // const [imagesArray, setImagesArray] = useState([]);
   const history = useHistory();
   ////
   ////validation
@@ -169,20 +169,20 @@ const UploadForm = () => {
       const reader = new FileReader();
       console.log("reader:", reader);
       reader.onloadend = () => {
-        setPreview(reader.result);
+        setImages(reader.result);
       };
       reader.readAsDataURL(file);
       console.log("file:", file.name);
       // <PageCars image={file} />;
     } else {
-      setPreview(null);
+      setImages(null);
     }
   }, [file]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      preview &&
+      images &&
       isValidVersion &&
       isValidYear &&
       isValidEngine &&
@@ -197,7 +197,7 @@ const UploadForm = () => {
       console.log("Correct data");
 
       addCars({
-        preview,
+        images,
         version,
         year,
         engine,
@@ -216,15 +216,15 @@ const UploadForm = () => {
     }
   };
   ////
-  console.log("preview:", preview);
+  console.log("preview:", images);
   return (
     <form
       onSubmit={(e) => {
         handleSubmit(e);
       }}
     >
-      {preview ? (
-        <img src={preview} width="150" height="100" />
+      {images ? (
+        <img src={images} width="150" height="100" />
       ) : (
         "no picture uppload"
       )}

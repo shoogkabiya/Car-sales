@@ -11,8 +11,9 @@ export const addCars = async (data) => {
       body: JSON.stringify({ data }),
     });
     const datacars = await response.json();
+    console.log("datacars:", datacars);
     if (datacars) {
-      console.log("datacars:", datacars);
+      console.log("datacars:", datacars.data);
     }
   } catch (error) {
     console.log(error);
