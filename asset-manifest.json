@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Car-sales/static/css/main.d14cc885.chunk.css",
-    "main.js": "/Car-sales/static/js/main.4fcbea6f.chunk.js",
-    "main.js.map": "/Car-sales/static/js/main.4fcbea6f.chunk.js.map",
-    "runtime-main.js": "/Car-sales/static/js/runtime-main.3e929eae.js",
-    "runtime-main.js.map": "/Car-sales/static/js/runtime-main.3e929eae.js.map",
-    "static/js/2.9d8cbfd5.chunk.js": "/Car-sales/static/js/2.9d8cbfd5.chunk.js",
-    "static/js/2.9d8cbfd5.chunk.js.map": "/Car-sales/static/js/2.9d8cbfd5.chunk.js.map",
-    "static/js/3.52e9fbbf.chunk.js": "/Car-sales/static/js/3.52e9fbbf.chunk.js",
-    "static/js/3.52e9fbbf.chunk.js.map": "/Car-sales/static/js/3.52e9fbbf.chunk.js.map",
-    "index.html": "/Car-sales/index.html",
-    "static/css/main.d14cc885.chunk.css.map": "/Car-sales/static/css/main.d14cc885.chunk.css.map",
-    "static/js/2.9d8cbfd5.chunk.js.LICENSE.txt": "/Car-sales/static/js/2.9d8cbfd5.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/Car-sales/static/media/logo.6ce24c58.svg"
+    "main.css": "/carsales/static/css/main.d14cc885.chunk.css",
+    "main.js": "/carsales/static/js/main.543aaadf.chunk.js",
+    "main.js.map": "/carsales/static/js/main.543aaadf.chunk.js.map",
+    "runtime-main.js": "/carsales/static/js/runtime-main.8400e7f5.js",
+    "runtime-main.js.map": "/carsales/static/js/runtime-main.8400e7f5.js.map",
+    "static/js/2.91ea55ef.chunk.js": "/carsales/static/js/2.91ea55ef.chunk.js",
+    "static/js/2.91ea55ef.chunk.js.map": "/carsales/static/js/2.91ea55ef.chunk.js.map",
+    "static/js/3.c30fde9e.chunk.js": "/carsales/static/js/3.c30fde9e.chunk.js",
+    "static/js/3.c30fde9e.chunk.js.map": "/carsales/static/js/3.c30fde9e.chunk.js.map",
+    "index.html": "/carsales/index.html",
+    "static/css/main.d14cc885.chunk.css.map": "/carsales/static/css/main.d14cc885.chunk.css.map",
+    "static/js/2.91ea55ef.chunk.js.LICENSE.txt": "/carsales/static/js/2.91ea55ef.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/carsales/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.3e929eae.js",
-    "static/js/2.9d8cbfd5.chunk.js",
+    "static/js/runtime-main.8400e7f5.js",
+    "static/js/2.91ea55ef.chunk.js",
     "static/css/main.d14cc885.chunk.css",
-    "static/js/main.4fcbea6f.chunk.js"
+    "static/js/main.543aaadf.chunk.js"
   ]
 }
