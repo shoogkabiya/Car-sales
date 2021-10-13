@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-My app Car-Sales :- http://shoogkabiya.githup.io/social-media
+My app Car-Sales :- http://shoogkabiya.githup.io/carsales
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
