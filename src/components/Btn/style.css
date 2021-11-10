@@ -1,0 +1,9 @@
+.common-design {
+  width: 50%;
+  font-size: 20px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: #0a3542;
+  color: #fff;
+  outline: none;
+}

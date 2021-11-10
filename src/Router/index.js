@@ -12,6 +12,8 @@ import Signin from "../screens/Signin/Signin";
 import Signup from "../screens/Signup/Signup";
 import PageCars from "../screens/PageCars";
 import UploadForm from "../screens/UploadCars/UploadForm";
+import PaymentDetails from "../screens/PaymentDetails/index";
+import CarsDetails from "../screens/CarsDetails";
 
 //components imports
 import HeadSection from "../components/HeadSection/index";
@@ -33,6 +35,12 @@ const Routing = () => {
           </Route>
           <Route path="/Cars">
             <PageCars />
+          </Route>
+          <Route path="/paymentdetails">
+            <PaymentDetails />
+          </Route>
+          <Route path="/carsdetails">
+            <CarsDetails />
           </Route>
         </Switch>
       </Router>
