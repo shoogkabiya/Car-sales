@@ -173,7 +173,6 @@ const UploadForm = () => {
       };
       reader.readAsDataURL(file);
       console.log("file:", file.name);
-      // <PageCars image={file} />;
     } else {
       setImages(null);
     }
@@ -197,22 +196,20 @@ const UploadForm = () => {
       console.log("Correct data");
 
       addCars({
-        images,
-        version,
-        year,
-        engine,
-        current_mileage,
-        hand,
-        gearbox,
-        color,
-        original_ownership,
-        next_test,
-        annual_licensing_fee,
+        version: version,
+        year: year,
+        engine: engine,
+        current_mileage: current_mileage,
+        hand: hand,
+        gearbox: gearbox,
+        color: color,
+        original_ownership: original_ownership,
+        next_test: next_test,
+        annual_licensing_fee: annual_licensing_fee,
+        images: images,
       });
+
       history.push("/Cars");
-      // imagesArray.push(preview);
-      // setImagesArray(imagesArray);
-      // console.log("ImagesArray:", imagesArray);
     }
   };
   ////
@@ -247,7 +244,7 @@ const UploadForm = () => {
           <p className="Vehicledetails">Vehicle details</p>
           <input
             type="text"
-            placeholder="Version"
+            placeholder="version"
             value={version}
             onChange={validateVersion}
             className="input-form"
@@ -263,7 +260,7 @@ const UploadForm = () => {
 
           <input
             type="text"
-            placeholder="Engine"
+            placeholder="engine"
             value={engine}
             onChange={validateEngine}
             className="input-form"
@@ -271,7 +268,7 @@ const UploadForm = () => {
 
           <input
             type="text"
-            placeholder="Current mileage"
+            placeholder="current_mileage"
             value={current_mileage}
             onChange={validateCurrentmileage}
             className="input-form"
@@ -279,7 +276,7 @@ const UploadForm = () => {
 
           <input
             type="text"
-            placeholder="Hand"
+            placeholder="hand"
             value={hand}
             onChange={validateHand}
             className="input-form"
@@ -287,7 +284,7 @@ const UploadForm = () => {
 
           <input
             type="text"
-            placeholder="Gearbox"
+            placeholder="gearbox"
             value={gearbox}
             onChange={validateGearbox}
             className="input-form"
@@ -295,7 +292,7 @@ const UploadForm = () => {
 
           <input
             type="text"
-            placeholder="Color"
+            placeholder="color"
             value={color}
             onChange={validateColor}
             className="input-form"
@@ -304,14 +301,14 @@ const UploadForm = () => {
           <input
             type="text"
             value={original_ownership}
-            placeholder="Original ownership"
+            placeholder="original_ownership"
             onChange={validateOriginalownership}
             className="input-form"
           />
 
           <input
             type="text"
-            placeholder="Next Test"
+            placeholder="next_test"
             value={next_test}
             onChange={validateNexttest}
             className="input-form"
@@ -319,7 +316,7 @@ const UploadForm = () => {
 
           <input
             type="text"
-            placeholder=" Annual licensing fee"
+            placeholder=" annual_licensing_fee"
             value={annual_licensing_fee}
             onChange={validateAnnuallicensingfee}
             className="input-form"
