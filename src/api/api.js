@@ -1,8 +1,8 @@
 const local = "http://localhost:4000";
 
 //connect frontend with backend
-export const addCars = async (data) => {
-  console.log("data:", data);
+export const addCars = async (newcar) => {
+  console.log("newcar:", newcar);
   try {
     const access_token = localStorage.getItem("access_token");
     const response = await fetch(`${local}/user/addCars`, {
@@ -11,11 +11,12 @@ export const addCars = async (data) => {
         "Content-Type": "application/json",
         access_token: access_token,
       },
-      body: JSON.stringify({ data }),
+      body: JSON.stringify({ newcar }),
     });
-    console.log("response:", response.json());
+    console.log("responsedata:", response);
     const datacars = await response.json();
     console.log("datacars:", datacars);
+
     if (datacars) {
       return datacars;
       // console.log("datacars:", datacars);
