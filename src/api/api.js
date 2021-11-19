@@ -25,3 +25,25 @@ export const addCars = async (newcar) => {
     console.log(error);
   }
 };
+
+//
+export const getCars = async () => {
+  try {
+    const response = await fetch(`${local}/car/getCars`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const cars = await response.json();
+    console.log("datacars:", cars);
+
+    if (cars) {
+      return cars;
+      // console.log("datacars:", datacars);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
