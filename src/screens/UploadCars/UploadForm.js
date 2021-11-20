@@ -3,7 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 
 //icons imports
 import { AddIcon } from "../../icons/index";
-// import PageCars from "../PageCars";
+
 //
 import { addCars } from "../../api/api";
 
@@ -38,9 +38,9 @@ const UploadForm = () => {
   ] = useState(false);
   ////
   const types = ["image/png", "image/jpeg", "image/webp"];
-  // const [imagesArray, setImagesArray] = useState([]);
+
   const history = useHistory();
-  ////
+
   ////validation
   const validateVersion = (event) => {
     const patternversion = /[a-ת_]/gi;
@@ -52,6 +52,7 @@ const UploadForm = () => {
       setIsValidVersion(false);
     }
   };
+
   ////
   const validateYear = (event) => {
     const patternyear = /^\d{4}$/i;
@@ -63,6 +64,7 @@ const UploadForm = () => {
       setIsValidYear(false);
     }
   };
+
   ////
   const validateEngine = (event) => {
     const patternengine = /[a-ת_\d]/gi;
@@ -74,6 +76,7 @@ const UploadForm = () => {
       setIsValidEngine(false);
     }
   };
+
   ////
   const validateCurrentmileage = (event) => {
     const patterncurrentmileage = /[,\d]/gi;
@@ -85,6 +88,7 @@ const UploadForm = () => {
       setIsValidCurrentmileage(false);
     }
   };
+
   ////
   const validateHand = (event) => {
     const patternhand = /^\d$/gi;
@@ -96,6 +100,7 @@ const UploadForm = () => {
       setIsValidHand(false);
     }
   };
+
   ////
   const validateGearbox = (event) => {
     const patterngearbox = /[א-ת]/gi;
@@ -107,6 +112,7 @@ const UploadForm = () => {
       setIsValidGearbox(false);
     }
   };
+
   ////
   const validateColor = (event) => {
     const patterncolor = /[א-ת]/gi;
@@ -118,6 +124,7 @@ const UploadForm = () => {
       setIsValidColor(false);
     }
   };
+
   ////
   const validateOriginalownership = (event) => {
     const patternoriginalownership = /[א-ת]/gi;
@@ -129,6 +136,7 @@ const UploadForm = () => {
       setIsValidOriginalownership(false);
     }
   };
+
   ////
   const validateNexttest = (event) => {
     const patternnexttest = /[א-ת\d]/gi;
@@ -140,6 +148,7 @@ const UploadForm = () => {
       setIsValidNexttest(false);
     }
   };
+
   ////
   const validateAnnuallicensingfee = (event) => {
     const patternannuallicensingfee = /[,\d]/gi;
@@ -151,6 +160,7 @@ const UploadForm = () => {
       setIsValidHandAnnuallicensingfee(false);
     }
   };
+
   ////
   const changeHandler = (e) => {
     let selected = e.target.files[0];

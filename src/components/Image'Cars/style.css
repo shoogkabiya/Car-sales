@@ -5,3 +5,7 @@
   margin-bottom: 20px;
   cursor: pointer;
 }
+
+.buttonimages {
+  display: "none";
+}

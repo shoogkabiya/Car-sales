@@ -1,6 +1,8 @@
 const local = "http://localhost:4000";
 
 //connect frontend with backend
+
+//addCars
 export const addCars = async (newcar) => {
   console.log("newcar:", newcar);
   try {
@@ -26,7 +28,7 @@ export const addCars = async (newcar) => {
   }
 };
 
-//
+//getCars
 export const getCars = async () => {
   try {
     const response = await fetch(`${local}/car/getCars`, {

@@ -3,7 +3,7 @@ import { getCars } from "../../api/api";
 import ImagesCars from "../../components/Image'Cars";
 import "./style.css";
 
-function PageCars(props) {
+function PageCars() {
   const [cars, setCars] = useState([]);
 
   useEffect(async () => {
@@ -17,7 +17,14 @@ function PageCars(props) {
       {cars &&
         cars.map((car, i) => {
           console.log("car :", i, " ", car);
-          return <ImagesCars key={car.version} index={i} images={car.images} />;
+          return (
+            <ImagesCars
+              key={car.version}
+              index={i}
+              images={car.images}
+              car={car}
+            />
+          );
         })}
     </div>
   );
