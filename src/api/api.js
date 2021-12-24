@@ -49,3 +49,25 @@ export const getCars = async () => {
     console.log(error);
   }
 };
+
+//getCarsByImage
+export const getCarsByImage = async (images) => {
+  try {
+    const response = await fetch(`${local}/car/getCarByImage`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ images }),
+    });
+
+    const car = await response.json();
+    console.log("car:", JSON.parse(car));
+    if (car) {
+      console.log("car:", JSON.parse(car[0]));
+      return JSON.parse(car[0]);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};

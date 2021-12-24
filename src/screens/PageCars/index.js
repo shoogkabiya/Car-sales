@@ -8,7 +8,6 @@ function PageCars() {
 
   useEffect(async () => {
     const cars = await getCars();
-
     setCars(cars);
   }, []);
 
@@ -16,7 +15,7 @@ function PageCars() {
     <div>
       {cars &&
         cars.map((car, i) => {
-          console.log("car :", i, " ", car);
+          // console.log("car :", i, " ", car);
           return (
             <ImagesCars
               key={car.version}

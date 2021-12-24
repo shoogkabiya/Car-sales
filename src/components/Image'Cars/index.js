@@ -1,22 +1,18 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import "./style.css";
-// screens imports
+import React, { useState, useEffect } from "react";
 import CarsDetails from "../../screens/CarsDetails";
+import "./style.css";
 
 const ImagesCars = (props) => {
-  const history = useHistory();
+  const [imageClick, setImageClick] = useState(false);
 
-  const handleClick = () => {
-    history.push("/carsdetails");
-    console.log("detailsofcars:", props.car);
+  const handleClick = async () => {
+    setImageClick(true);
   };
-
-  console.log("propsofimages:", props);
 
   return (
     <div className="images">
       <img width="60%" src={props.images} onClick={handleClick} />
+      {imageClick ? <CarsDetails image={props.images} /> : ""}
     </div>
   );
 };
