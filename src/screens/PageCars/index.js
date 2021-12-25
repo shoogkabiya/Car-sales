@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getCars } from "../../api/api";
+import { useHistory } from "react-router-dom";
 import ImagesCars from "../../components/Image'Cars";
 import "./style.css";
 
-function PageCars() {
+function PageCars(props) {
   const [cars, setCars] = useState([]);
 
   useEffect(async () => {

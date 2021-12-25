@@ -25,8 +25,8 @@ const CarsDetails = (props) => {
       <Button label="Buy" handleClick={handleSubmit} />
       {details.forEach((element) => {
         if (props.image === element.images) {
-          console.log("image:", props.image);
-          console.log("element.version:", element.version);
+          console.log("props.image:", props.image);
+          console.log("element.images:", element.images);
         }
       })}
     </div>
