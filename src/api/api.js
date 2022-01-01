@@ -58,14 +58,14 @@ export const getCarsByImage = async (images) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ images }),
+      body: JSON.stringify(images),
     });
 
     const car = await response.json();
-    console.log("car:", JSON.parse(car));
+    console.log("car:", car);
+
     if (car) {
-      console.log("car:", JSON.parse(car[0]));
-      return JSON.parse(car[0]);
+      return car;
     }
   } catch (error) {
     console.log(error);
