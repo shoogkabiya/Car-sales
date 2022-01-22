@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-
 import "./style.css";
 
 const ImagesCars = (props) => {
@@ -9,6 +8,7 @@ const ImagesCars = (props) => {
 
   const handleClick = async () => {
     setImageClick(true);
+    localStorage.setItem("ImageClicked", props.images);
     history.push("/carsdetails");
   };
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getCars } from "../../api/api";
-import { useHistory } from "react-router-dom";
 import ImagesCars from "../../components/Image'Cars";
 import "./style.css";
 
