@@ -10,36 +10,37 @@ import ImagesCars from "../../components/Image'Cars";
 
 const CarsDetails = (props) => {
   const [details, setDetails] = useState([]);
+  const [cars, setCars] = useState([]);
 
   const history = useHistory();
 
-  function getImage() {
-    {
-      details &&
-        details.map((element, i) => {
-          // console.log("car :", i, " ", car);
-          return (
-            <ImagesCars
-              key={element.version}
-              index={i}
-              images={element.images}
-            />
-          );
-        });
-    }
-  }
+  const getImage = async () => {
+    const detailsofcars = await getCars();
+    setDetails(detailsofcars);
+    console.log("details:", detailsofcars);
+    console.log("detailsimages:", detailsofcars.images);
+    return detailsofcars[3].images;
+    // {
+    //   detailsofcars &&
+    //     detailsofcars.forEach((element, i) => {
+    //       console.log("car :", i, " ", element.images);
+    //       return element.images;
+    //     });
+    // }
+  };
 
   useEffect(async () => {
     // const images =
     //   "https://images.carwiz.co.il/tr:w-1920/agencies/0a89ea0c4afd5e10d566e0c5f901a8952f04365b.jpeg?ik-sdk-version=react-1.0.10";
 
-    const images = getImage();
+    const images = await getImage();
     console.log("image:", images);
     // const details = await getCars();
     // setDetails(details);
-    const cars = await getCarsByImage({ images });
+
+    const cars = await getCarsByImage({ images: images });
     // console.log("details:", details);
-    setDetails(cars);
+    setCars(cars);
   }, []);
 
   const handleSubmit = () => {
@@ -59,7 +60,12 @@ const CarsDetails = (props) => {
               images={element.images}
             />
           );
+          <
         })} */}
+      {cars &&
+        cars.map((car, i) => {
+          return <Details key={car.images} index={i} car={car} />;
+        })}
     </div>
   );
 };

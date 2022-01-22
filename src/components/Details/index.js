@@ -2,12 +2,21 @@ import React from "react";
 import "./style.css";
 
 const Details = (props) => {
-  const details = props.element;
-  console.log("details:", details);
+  const car = props.car;
+  console.log("detailsofcar:", car);
 
   return (
-    <div>
-      <h1>{details.version}</h1>
+    <div className="detailsofcar">
+      <p>{car.version}</p>
+      <p>{car.year}</p>
+      <p>{car.engine}</p>
+      <p>{car.current_mileage}</p>
+      <p>{car.hand}</p>
+      <p>{car.gearbox}</p>
+      <p>{car.color}</p>
+      <p>{car.original_ownership}</p>
+      <p>{car.next_test}</p>
+      <p>{car.annual_licensing_fee}</p>
     </div>
   );
 };
