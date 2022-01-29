@@ -13,7 +13,7 @@ const ImagesCars = (props) => {
   };
 
   return (
-    <div className="images">
+    <div>
       <img width="60%" src={props.images} onClick={handleClick} />
     </div>
   );

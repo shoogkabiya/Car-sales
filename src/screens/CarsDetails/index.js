@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+
+//imports from api
 import { getCars, getCarsByImage } from "../../api/api";
 import "./style.css";
 
@@ -7,7 +9,7 @@ import "./style.css";
 import Button from "../../components/Btn";
 import Details from "../../components/Details";
 
-const CarsDetails = (props) => {
+const CarsDetails = () => {
   const [details, setDetails] = useState([]);
   const [cars, setCars] = useState([]);
 
@@ -16,13 +18,10 @@ const CarsDetails = (props) => {
   const getImage = async () => {
     const detailsofcars = await getCars();
     setDetails(detailsofcars);
-    // console.log("details:", detailsofcars);
-    // console.log("detailsimages:", detailsofcars.images);
     const imagesofcar = localStorage.getItem("ImageClicked");
     detailsofcars.forEach(async (element) => {
       if (element.images === imagesofcar) {
-        console.log("imagesmatch:", element.images);
-        // return element.images;
+        console.log("imagematch:", element.images);
         const cars = await getCarsByImage({ images: element.images });
         setCars(cars);
       }

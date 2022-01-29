@@ -1,7 +1,7 @@
 .images {
   display: flex;
+  width: 50%;
   justify-content: space-around;
-  width: 60%;
   margin-bottom: 20px;
   cursor: pointer;
 }

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
+
+//imports from api
 import { getCars } from "../../api/api";
+
+// components imports
 import ImagesCars from "../../components/Image'Cars";
 import "./style.css";
 
-function PageCars(props) {
+function PageCars() {
   const [cars, setCars] = useState([]);
 
   useEffect(async () => {
@@ -12,7 +16,7 @@ function PageCars(props) {
   }, []);
 
   return (
-    <div>
+    <div className="arrayofimages">
       {cars &&
         cars.map((car, i) => {
           // console.log("car :", i, " ", car);

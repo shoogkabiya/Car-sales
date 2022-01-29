@@ -17,6 +17,7 @@ const Details = (props) => {
       <p>{car.original_ownership}</p>
       <p>{car.next_test}</p>
       <p>{car.annual_licensing_fee}</p>
+      <img width="40%" src={car.images} className="carimage" />
     </div>
   );
 };
