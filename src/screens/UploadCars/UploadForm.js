@@ -205,6 +205,8 @@ const UploadForm = () => {
     ) {
       console.log("Correct data");
 
+      localStorage.setItem("ImagesUpload", images);
+
       addCars({
         version: version,
         year: year,
