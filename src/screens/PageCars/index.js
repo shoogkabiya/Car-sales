@@ -20,14 +20,7 @@ function PageCars() {
       {cars &&
         cars.map((car, i) => {
           // console.log("car :", i, " ", car);
-          return (
-            <ImagesCars
-              key={car.version}
-              index={i}
-              images={car.images}
-              car={car}
-            />
-          );
+          return <ImagesCars key={i} index={i} images={car.images} car={car} />;
         })}
     </div>
   );

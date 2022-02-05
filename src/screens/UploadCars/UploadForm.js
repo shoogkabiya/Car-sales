@@ -21,6 +21,8 @@ const UploadForm = () => {
   const [original_ownership, setOriginalownership] = useState("");
   const [next_test, setNexttest] = useState("");
   const [annual_licensing_fee, setAnnuallicensingfee] = useState("");
+  const [price, setPrice] = useState("");
+  const [isValidPrice, setIsValidPrice] = useState(false);
   const [isValidVersion, setIsValidVersion] = useState(false);
   const [isValidYear, setIsValidYear] = useState(false);
   const [isValidEngine, setIsValidEngine] = useState(false);
@@ -162,6 +164,18 @@ const UploadForm = () => {
   };
 
   ////
+  const validatePrice = (event) => {
+    const patternprice = /[,\d]/gi;
+    setPrice(event.target.value);
+    if (patternprice.test(event.target.value)) {
+      console.log("price:", "price");
+      setIsValidPrice(true);
+    } else {
+      setIsValidPrice(false);
+    }
+  };
+
+  ////
   const changeHandler = (e) => {
     let selected = e.target.files[0];
     if (selected && types.includes(selected.type)) {
@@ -201,7 +215,8 @@ const UploadForm = () => {
       isValidColor &&
       isValidOriginalownership &&
       isValidNexttest &&
-      isValidAnnuallicensingfee
+      isValidAnnuallicensingfee &&
+      isValidPrice
     ) {
       console.log("Correct data");
 
@@ -219,6 +234,7 @@ const UploadForm = () => {
         next_test: next_test,
         annual_licensing_fee: annual_licensing_fee,
         images: images,
+        price: price,
       });
 
       history.push("/Cars");
@@ -263,7 +279,7 @@ const UploadForm = () => {
           />
 
           <input
-            type="text"
+            type="number"
             placeholder="year"
             value={year}
             onChange={validateYear}
@@ -287,7 +303,7 @@ const UploadForm = () => {
           />
 
           <input
-            type="text"
+            type="number"
             placeholder="hand"
             value={hand}
             onChange={validateHand}
@@ -331,6 +347,14 @@ const UploadForm = () => {
             placeholder=" annual_licensing_fee"
             value={annual_licensing_fee}
             onChange={validateAnnuallicensingfee}
+            className="input-form"
+          />
+
+          <input
+            type="text"
+            placeholder="price"
+            value={price}
+            onChange={validatePrice}
             className="input-form"
           />
 
