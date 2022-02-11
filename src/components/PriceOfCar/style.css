@@ -1,0 +1,22 @@
+.detailsofcar {
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-evenly;
+}
+
+.imagesforbuy {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+/* .choosePayPal,
+.chooseIsracard {
+
+} */

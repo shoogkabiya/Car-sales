@@ -6,7 +6,7 @@ const Details = (props) => {
   console.log("detailsofcar:", car);
 
   return (
-    <div className="detailsofcar">
+    <div className="detailsforcar">
       <p>{car.version}</p>
       <p>{car.year}</p>
       <p>{car.engine}</p>
