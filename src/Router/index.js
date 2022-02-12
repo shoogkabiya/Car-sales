@@ -14,6 +14,7 @@ import PageCars from "../screens/PageCars";
 import UploadForm from "../screens/UploadCars/UploadForm";
 import PaymentDetails from "../screens/PaymentDetails/index";
 import CarsDetails from "../screens/CarsDetails";
+import CardDetails from "../screens/CardDetails";
 
 //components imports
 import HeadSection from "../components/HeadSection/index";
@@ -41,6 +42,9 @@ const Routing = () => {
           </Route>
           <Route path="/carsdetails">
             <CarsDetails />
+          </Route>
+          <Route path="/carddetails">
+            <CardDetails />
           </Route>
         </Switch>
       </Router>
