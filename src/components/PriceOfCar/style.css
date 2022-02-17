@@ -16,7 +16,11 @@
   margin-left: 30px;
 }
 
-/* .choosePayPal,
-.chooseIsracard {
+/* .choosePayPal {
+  display: flex;
+}
 
+.chooseIsracard {
+  display: flex;
+  margin-right: 100px;
 } */

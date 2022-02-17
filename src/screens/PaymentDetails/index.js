@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import PriceOfCar from "../../components/PriceOfCar";
+import "./style.css";
 
 //imports from api
 import { getCars, getCarsByImage } from "../../api/api";
+
 function PaymentDetails() {
+  const [PayPalisChecked, setPayPalisChecked] = useState(false);
+  const [Isracardischecked, setIsracardisChecked] = useState(false);
   const [details, setDetails] = useState([]);
   const [cars, setCars] = useState([]);
+  const history = useHistory();
 
   const getImage = async () => {
     const detailsofcars = await getCars();
@@ -27,13 +32,40 @@ function PaymentDetails() {
 
     getImage();
   }, []);
+
+  ////Submit
+  const handleSubmit = (e) => {
+    if (Isracardischecked) {
+      history.push("/carddetails");
+    } else if (PayPalisChecked) {
+      history.push("/PayPalDetails");
+    }
+  };
+
   return (
     <div>
       <h1>buy a car</h1>
       {cars &&
         cars.map((car, i) => {
-          return <PriceOfCar key={car.version} index={i} car={car} />;
+          return (
+            <PriceOfCar
+              key={car.version}
+              index={i}
+              car={car}
+              Isracardischecked={Isracardischecked}
+              PayPalisChecked={PayPalisChecked}
+              setPayPalisChecked={setPayPalisChecked}
+              setIsracardisChecked={setIsracardisChecked}
+            />
+          );
         })}
+      <button
+        type="submit"
+        className="button-Purchase"
+        onClick={(e) => handleSubmit(e)}
+      >
+        Submit
+      </button>
     </div>
   );
 }

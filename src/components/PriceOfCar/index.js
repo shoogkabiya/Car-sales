@@ -7,14 +7,16 @@ const PriceOfCar = (props) => {
   const car = props.car;
   console.log("detailsofcar:", car);
   const [isChecked, setIsChecked] = useState(false);
-  const [PayPalisChecked, setPayPalisChecked] = useState(false);
-  const [Isracardischecked, setIsracardisChecked] = useState(false);
+  const PayPalisChecked = props.PayPalisChecked;
+  const setPayPalisChecked = props.setPayPalisChecked;
+  const setIsracardisChecked = props.setIsracardisChecked;
+  const Isracardischecked = props.Isracardischecked;
 
   ////PayPalIschecked
   const validatePaypal = () => {
     const checkedPayPal = document.getElementById("PayPal");
     console.log("checkedPayPal:", checkedPayPal);
-    if (PayPalisChecked) {
+    if (checkedPayPal) {
       setPayPalisChecked(true);
     }
   };
@@ -22,9 +24,19 @@ const PriceOfCar = (props) => {
   ////IsracardIschecked
   const validateIsracard = () => {
     const checkedIsracard = document.getElementById("Isracard");
-    console.log("Isracardischecked:", Isracardischecked);
-    if (Isracardischecked) {
+    console.log("Isracardischecked:", checkedIsracard);
+    if (checkedIsracard) {
       setIsracardisChecked(true);
+    }
+  };
+
+  ////Submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (PayPalisChecked) {
+      return PayPalisChecked;
+    } else if (Isracardischecked) {
+      return Isracardischecked;
     }
   };
 
@@ -36,31 +48,39 @@ const PriceOfCar = (props) => {
         </strong>
         <p>{car.price}</p>
       </div>
+
       <div className="imagesforbuy">
-        <div className="choosePayPal">
-          <label htmlFor="role-image">
+        <form
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          <div className="choosePayPal">
             <input
               type="radio"
               name="role"
               id="PayPal"
-              onClick={() => validatePaypal}
-              onChange={() => setPayPalisChecked(!isChecked)}
+              onClick={() => validatePaypal()}
+              onChange={() => setIsChecked(!isChecked)}
             />
-            <img width="60%" src={PayPal} />
-          </label>
-        </div>
-        <div className="chooseIsracard">
-          <label htmlFor="role-image">
+            <label>
+              <img width="60%" id="PayPal" src={PayPal} />
+            </label>
+          </div>
+
+          <div className="chooseIsracard">
             <input
               type="radio"
               name="role"
               id="Isracard"
-              onClick={() => validateIsracard}
-              onChange={() => setIsracardisChecked(!isChecked)}
+              onClick={() => validateIsracard()}
+              onChange={() => setIsChecked(!isChecked)}
             />
-            <img width="60%" src={Isracard} />
-          </label>
-        </div>
+            <label>
+              <img width="60%" id="Isracard" src={Isracard} />
+            </label>
+          </div>
+        </form>
       </div>
     </div>
   );

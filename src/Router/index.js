@@ -15,6 +15,7 @@ import UploadForm from "../screens/UploadCars/UploadForm";
 import PaymentDetails from "../screens/PaymentDetails/index";
 import CarsDetails from "../screens/CarsDetails";
 import CardDetails from "../screens/CardDetails";
+import PayPalDetails from "../screens/PayPalDetails";
 
 //components imports
 import HeadSection from "../components/HeadSection/index";
@@ -45,6 +46,9 @@ const Routing = () => {
           </Route>
           <Route path="/carddetails">
             <CardDetails />
+          </Route>
+          <Route path="/PayPalDetails">
+            <PayPalDetails />
           </Route>
         </Switch>
       </Router>
