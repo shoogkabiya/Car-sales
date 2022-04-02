@@ -30,14 +30,11 @@ const UploadForm = () => {
   const [isValidHand, setIsValidHand] = useState(false);
   const [isValidGearbox, setIsValidGearbox] = useState(false);
   const [isValidColor, setIsValidColor] = useState(false);
-  const [isValidOriginalownership, setIsValidOriginalownership] = useState(
-    false
-  );
+  const [isValidOriginalownership, setIsValidOriginalownership] =
+    useState(false);
   const [isValidNexttest, setIsValidNexttest] = useState(false);
-  const [
-    isValidAnnuallicensingfee,
-    setIsValidHandAnnuallicensingfee,
-  ] = useState(false);
+  const [isValidAnnuallicensingfee, setIsValidHandAnnuallicensingfee] =
+    useState(false);
   ////
   const types = ["image/png", "image/jpeg", "image/webp"];
 
@@ -243,127 +240,129 @@ const UploadForm = () => {
   ////
   console.log("preview:", images);
   return (
-    <form
-      onSubmit={(e) => {
-        handleSubmit(e);
-      }}
-    >
-      {images ? (
-        <img src={images} width="150" height="100" />
-      ) : (
-        "no picture uppload"
-      )}
+    <div className="Upload-form">
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
+        {images ? (
+          <img src={images} width="150" height="100" />
+        ) : (
+          <div className="error-inupload">"no picture uppload"</div>
+        )}
 
-      <label>
-        <input
-          type="file"
-          onChange={changeHandler}
-          multiple
-          style={{ display: "none" }}
-          accept="image/*"
-        />
-        <AddIcon className="Add-icon"></AddIcon>
-      </label>
-
-      <div className="error">
-        {error && <div className="errormessage">{error}</div>}
-        {file && <div style={{ display: "none" }}>{file.name}</div>}
-        <div className="UploadForm">
-          <p className="Vehicledetails">Vehicle details</p>
+        <label>
           <input
-            type="text"
-            placeholder="version"
-            value={version}
-            onChange={validateVersion}
-            className="input-form"
+            type="file"
+            onChange={changeHandler}
+            multiple
+            style={{ display: "none" }}
+            accept="image/*"
           />
+          <AddIcon className="Add-icon"></AddIcon>
+        </label>
 
-          <input
-            type="number"
-            placeholder="year"
-            value={year}
-            onChange={validateYear}
-            className="input-form"
-          />
+        <div className="error">
+          {error && <div className="errormessage">{error}</div>}
+          {file && <div style={{ display: "none" }}>{file.name}</div>}
+          <div className="UploadForm">
+            <p className="Vehicledetails">Vehicle details</p>
+            <input
+              type="text"
+              placeholder="version"
+              value={version}
+              onChange={validateVersion}
+              className="input-form"
+            />
 
-          <input
-            type="text"
-            placeholder="engine"
-            value={engine}
-            onChange={validateEngine}
-            className="input-form"
-          />
+            <input
+              type="number"
+              placeholder="year"
+              value={year}
+              onChange={validateYear}
+              className="input-form"
+            />
 
-          <input
-            type="text"
-            placeholder="current_mileage"
-            value={current_mileage}
-            onChange={validateCurrentmileage}
-            className="input-form"
-          />
+            <input
+              type="text"
+              placeholder="engine"
+              value={engine}
+              onChange={validateEngine}
+              className="input-form"
+            />
 
-          <input
-            type="number"
-            placeholder="hand"
-            value={hand}
-            onChange={validateHand}
-            className="input-form"
-          />
+            <input
+              type="text"
+              placeholder="current_mileage"
+              value={current_mileage}
+              onChange={validateCurrentmileage}
+              className="input-form"
+            />
 
-          <input
-            type="text"
-            placeholder="gearbox"
-            value={gearbox}
-            onChange={validateGearbox}
-            className="input-form"
-          />
+            <input
+              type="number"
+              placeholder="hand"
+              value={hand}
+              onChange={validateHand}
+              className="input-form"
+            />
 
-          <input
-            type="text"
-            placeholder="color"
-            value={color}
-            onChange={validateColor}
-            className="input-form"
-          />
+            <input
+              type="text"
+              placeholder="gearbox"
+              value={gearbox}
+              onChange={validateGearbox}
+              className="input-form"
+            />
 
-          <input
-            type="text"
-            value={original_ownership}
-            placeholder="original_ownership"
-            onChange={validateOriginalownership}
-            className="input-form"
-          />
+            <input
+              type="text"
+              placeholder="color"
+              value={color}
+              onChange={validateColor}
+              className="input-form"
+            />
 
-          <input
-            type="text"
-            placeholder="next_test"
-            value={next_test}
-            onChange={validateNexttest}
-            className="input-form"
-          />
+            <input
+              type="text"
+              value={original_ownership}
+              placeholder="original_ownership"
+              onChange={validateOriginalownership}
+              className="input-form"
+            />
 
-          <input
-            type="text"
-            placeholder=" annual_licensing_fee"
-            value={annual_licensing_fee}
-            onChange={validateAnnuallicensingfee}
-            className="input-form"
-          />
+            <input
+              type="text"
+              placeholder="next_test"
+              value={next_test}
+              onChange={validateNexttest}
+              className="input-form"
+            />
 
-          <input
-            type="text"
-            placeholder="price"
-            value={price}
-            onChange={validatePrice}
-            className="input-form"
-          />
+            <input
+              type="text"
+              placeholder=" annual_licensing_fee"
+              value={annual_licensing_fee}
+              onChange={validateAnnuallicensingfee}
+              className="input-form"
+            />
 
-          <button className="AddCar" type="submit">
-            Add
-          </button>
+            <input
+              type="text"
+              placeholder="price"
+              value={price}
+              onChange={validatePrice}
+              className="input-form"
+            />
+
+            <button className="AddCar" type="submit">
+              Add
+            </button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 export default UploadForm;

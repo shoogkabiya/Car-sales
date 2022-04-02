@@ -10,7 +10,7 @@
   margin: auto;
   margin-top: 3px;
   width: 414px;
-  height: 110vh;
+  height: 95vh;
   margin-bottom: 8px;
   box-sizing: border-box;
 }
@@ -18,13 +18,12 @@
 .Signup-input-form,
 .form-signin-input,
 .UploadForm {
-  display: flex;
   flex-direction: column;
-  padding: 60px;
+  padding: 20px;
 }
 
 input {
-  width: 90%;
+  width: 80%;
   background-color: #c4c4c4;
   border: none;
   padding: 6px;
@@ -48,7 +47,7 @@ input:focus {
 .AddCar {
   display: flex;
   color: #161f53;
-  width: 50%;
+  width: 40%;
   margin: auto;
   border-radius: 10px;
   background-color: #c4c4c4;
@@ -57,7 +56,7 @@ input:focus {
   align-items: center;
   border: none;
   font-size: 16px;
-  padding: 6px;
+  padding: 3px;
 }
 
 .Signin,
@@ -87,17 +86,12 @@ input:focus {
 }
 
 .Add-icon {
+  display: flex;
   width: 50px;
   cursor: pointer;
-  margin: 30px;
+  margin: auto;
 }
 .Vehicledetails {
   text-align: center;
-  margin-top: 0px;
-  margin-bottom: 5px;
-}
-
-/* .AddCar {
-  margin-top: 2px;
   margin-bottom: 2px;
-} */
+}

@@ -60,8 +60,8 @@ function PaymentDetails() {
           );
         })}
       <button
-        type="submit"
         className="button-Purchase"
+        type="submit"
         onClick={(e) => handleSubmit(e)}
       >
         Submit
